@@ -54,35 +54,19 @@ const Navbar: React.FC = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}
+              style={{ display: 'flex', alignItems: 'center' }}
             >
-              <div style={{ 
-                background: 'white', 
-                padding: '0.25rem', 
-                borderRadius: '0.5rem',
-                boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)'
-              }}>
-                <img 
-                  src="/logo.png" 
-                  alt="Indus2 Logo" 
-                  style={{ width: '32px', height: '32px', objectFit: 'contain' }}
-                />
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                <span style={{ 
-                  fontSize: '1.5rem', 
-                  fontWeight: '800',
-                  color: isScrolled ? '#2563eb' : 'white',
-                  letterSpacing: '-0.02em',
-                  transition: 'color 0.3s ease'
-                }}>
-                  Indus2
-                </span>
-                <Sparkles size={16} style={{ 
-                  color: isScrolled ? '#2563eb' : '#60a5fa',
-                  marginLeft: '0.25rem'
-                }} />
-              </div>
+              <img 
+                src="/logo.png" 
+                alt="Indus2 Logo" 
+                style={{ 
+                  height: '40px', 
+                  width: 'auto', 
+                  objectFit: 'contain',
+                  borderRadius: '0.5rem',
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
+                }}
+              />
             </motion.div>
 
             {/* Navigation Links */}

@@ -10,20 +10,18 @@ const Footer: React.FC = () => {
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 2rem 1rem' }}>
         {/* Company Info */}
         <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
-            <div style={{ 
-              background: 'white', 
-              padding: '0.5rem', 
-              borderRadius: '0.75rem',
-              boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)'
-            }}>
-              <img 
-                src="/logo.png" 
-                alt="Indus2 Logo" 
-                style={{ width: '36px', height: '36px', objectFit: 'contain' }}
-              />
-            </div>
-            <span style={{ fontSize: '2rem', fontWeight: '700', color: 'white' }}>Indus2</span>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+            <img 
+              src="/logo.png" 
+              alt="Indus2 Logo" 
+              style={{ 
+                height: '50px', 
+                width: 'auto', 
+                objectFit: 'contain',
+                borderRadius: '0.5rem',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)'
+              }}
+            />
           </div>
           
           <p style={{ 
