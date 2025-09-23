@@ -57,12 +57,16 @@ const Navbar: React.FC = () => {
               style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}
             >
               <div style={{ 
-                background: 'linear-gradient(135deg, #2563eb 0%, #9333ea 100%)', 
-                padding: '0.5rem', 
+                background: 'white', 
+                padding: '0.25rem', 
                 borderRadius: '0.5rem',
                 boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)'
               }}>
-                <Code2 style={{ width: '24px', height: '24px', color: 'white' }} />
+                <img 
+                  src="/logo.png" 
+                  alt="Indus2 Logo" 
+                  style={{ width: '32px', height: '32px', objectFit: 'contain' }}
+                />
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                 <span style={{ 

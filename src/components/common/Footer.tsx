@@ -12,11 +12,16 @@ const Footer: React.FC = () => {
         <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
             <div style={{ 
-              background: 'linear-gradient(135deg, #2563eb 0%, #9333ea 100%)', 
-              padding: '0.75rem', 
-              borderRadius: '0.75rem' 
+              background: 'white', 
+              padding: '0.5rem', 
+              borderRadius: '0.75rem',
+              boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)'
             }}>
-              <Code2 style={{ width: '32px', height: '32px', color: 'white' }} />
+              <img 
+                src="/logo.png" 
+                alt="Indus2 Logo" 
+                style={{ width: '36px', height: '36px', objectFit: 'contain' }}
+              />
             </div>
             <span style={{ fontSize: '2rem', fontWeight: '700', color: 'white' }}>Indus2</span>
           </div>
