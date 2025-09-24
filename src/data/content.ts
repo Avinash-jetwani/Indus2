@@ -1,4 +1,4 @@
-import { Service, Technology, CaseStudy, Testimonial, Statistic } from '../types';
+import type { Service, Technology, CaseStudy, Testimonial, Statistic } from '../types';
 
 export const services: Service[] = [
   {
