@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
         <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
             <img 
-              src="/logo.png" 
+              src={`${import.meta.env.BASE_URL}logo.png`}
               alt="Indus2 Logo" 
               style={{ 
                 height: '60px', 

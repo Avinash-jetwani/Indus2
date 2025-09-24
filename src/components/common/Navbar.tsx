@@ -56,17 +56,17 @@ const Navbar: React.FC = () => {
               transition={{ duration: 0.5 }}
               style={{ display: 'flex', alignItems: 'center' }}
             >
-              <img 
-                src="/logo.png" 
-                alt="Indus2 Logo" 
-                style={{ 
-                  height: '48px', 
-                  width: 'auto', 
-                  objectFit: 'contain',
-                  borderRadius: '0.5rem',
-                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
-                }}
-              />
+            <img 
+              src={`${import.meta.env.BASE_URL}logo.png`}
+              alt="Indus2 Logo" 
+              style={{ 
+                height: '48px', 
+                width: 'auto', 
+                objectFit: 'contain',
+                borderRadius: '0.5rem',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
+              }}
+            />
             </motion.div>
 
             {/* Navigation Links */}
