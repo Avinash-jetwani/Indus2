@@ -89,7 +89,7 @@ const Navbar: React.FC = () => {
                     padding: '0.5rem 1rem',
                     borderRadius: '0.5rem',
                     color: activeSection === item.id 
-                      ? (isScrolled ? '#2563eb' : '#60a5fa')
+                      ? (isScrolled ? 'rgb(223, 74, 37)' : 'rgb(255, 186, 164)')
                       : (isScrolled ? '#6b7280' : 'rgba(255, 255, 255, 0.9)'),
                     fontWeight: activeSection === item.id ? '600' : '500',
                     cursor: 'pointer',
@@ -99,13 +99,13 @@ const Navbar: React.FC = () => {
                     fontSize: '0.95rem'
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = isScrolled ? '#2563eb' : 'white';
+                    (e.currentTarget as HTMLElement).style.color = isScrolled ? 'rgb(223, 74, 37)' : 'white';
                   }}
                   onMouseLeave={(e) => {
                     if (activeSection !== item.id) {
                       (e.currentTarget as HTMLElement).style.color = isScrolled ? '#6b7280' : 'rgba(255, 255, 255, 0.9)';
                     } else {
-                      (e.currentTarget as HTMLElement).style.color = isScrolled ? '#2563eb' : '#60a5fa';
+                      (e.currentTarget as HTMLElement).style.color = isScrolled ? 'rgb(223, 74, 37)' : 'rgb(255, 186, 164)';
                     }
                   }}
                 >
@@ -121,8 +121,8 @@ const Navbar: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.7 }}
             >
               <Link to="contact" smooth={true} duration={500}>
-                <button style={{
-                  background: 'linear-gradient(135deg, #2563eb 0%, #9333ea 100%)',
+                <button                 style={{
+                  background: 'rgb(223, 74, 37)',
                   color: 'white',
                   border: 'none',
                   padding: '0.75rem 1.5rem',
@@ -131,18 +131,18 @@ const Navbar: React.FC = () => {
                   fontWeight: '600',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
-                  boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+                  boxShadow: '0 4px 12px rgba(223, 74, 37, 0.3)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '0.5rem'
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
-                  (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 20px rgba(37, 99, 235, 0.4)';
+                  (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 20px rgba(223, 74, 37, 0.4)';
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
-                  (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 12px rgba(37, 99, 235, 0.3)';
+                  (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 12px rgba(223, 74, 37, 0.3)';
                 }}
                 >
                   Get Started

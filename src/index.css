@@ -168,7 +168,7 @@ body {
 
 /* Gradients */
 .bg-gradient-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, rgb(223, 74, 37) 0%, rgb(255, 255, 255) 100%);
 }
 
 .bg-gradient-hero {
@@ -176,7 +176,7 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, rgb(223, 74, 37) 0%, rgb(255, 255, 255) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -473,7 +473,7 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #2563eb 0%, #9333ea 100%);
+  background: rgb(223, 74, 37);
   color: white;
   padding: 0.75rem 1.5rem;
   border: none;
@@ -481,7 +481,7 @@ body {
 
 .btn-primary:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 10px 15px -3px rgba(223, 74, 37, 0.4);
 }
 
 .btn-outline {
