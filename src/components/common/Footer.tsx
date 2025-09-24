@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
               src="/logo.png" 
               alt="Indus2 Logo" 
               style={{ 
-                height: '50px', 
+                height: '60px', 
                 width: 'auto', 
                 objectFit: 'contain',
                 borderRadius: '0.5rem',
