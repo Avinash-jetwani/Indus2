@@ -223,27 +223,27 @@ export const testimonials: Testimonial[] = [
 export const statistics: Statistic[] = [
   {
     id: '1',
-    value: '500',
+    value: '80',
     label: 'Projects Completed',
-    suffix: '+'
+    suffix: ''
   },
   {
     id: '2',
-    value: '150',
+    value: '15',
     label: 'Happy Clients',
-    suffix: '+'
+    suffix: ''
   },
   {
     id: '3',
-    value: '50',
+    value: '15',
     label: 'Team Members',
-    suffix: '+'
+    suffix: ''
   },
   {
     id: '4',
-    value: '15',
+    value: '5',
     label: 'Years of Experience',
-    suffix: '+'
+    suffix: ''
   }
 ];
 

@@ -235,10 +235,10 @@ const Hero: React.FC = () => {
             }}
           >
             {[
-              { value: '500+', label: 'Projects' },
-              { value: '150+', label: 'Clients' },
-              { value: '50+', label: 'Team' },
-              { value: '15+', label: 'Years' },
+              { value: '80', label: 'Projects' },
+              { value: '15', label: 'Clients' },
+              { value: '15', label: 'Team' },
+              { value: '5', label: 'Years' },
             ].map((stat, index) => (
               <motion.div
                 key={index}

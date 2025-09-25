@@ -58,10 +58,10 @@ const About: React.FC = () => {
   ];
 
   const achievements = [
-    { number: '500+', label: 'Projects Completed', suffix: '' },
+    { number: '80', label: 'Projects Completed', suffix: '' },
     { number: '98', label: 'Client Satisfaction', suffix: '%' },
-    { number: '50+', label: 'Industry Awards', suffix: '' },
-    { number: '15+', label: 'Global Offices', suffix: '' }
+    { number: '15', label: 'Industry Awards', suffix: '' },
+    { number: '5', label: 'Global Offices', suffix: '' }
   ];
 
   return (
