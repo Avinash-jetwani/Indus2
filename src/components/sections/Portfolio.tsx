@@ -207,12 +207,12 @@ const Portfolio: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <Briefcase className="w-10 h-10 mx-auto mb-3" />
-              <div className="text-4xl font-bold mb-2">500+</div>
+              <div className="text-4xl font-bold mb-2">80</div>
               <div className="text-white/80">Projects Delivered</div>
             </div>
             <div>
               <Users className="w-10 h-10 mx-auto mb-3" />
-              <div className="text-4xl font-bold mb-2">150+</div>
+              <div className="text-4xl font-bold mb-2">15</div>
               <div className="text-white/80">Happy Clients</div>
             </div>
             <div>
@@ -222,7 +222,7 @@ const Portfolio: React.FC = () => {
             </div>
             <div>
               <Award className="w-10 h-10 mx-auto mb-3" />
-              <div className="text-4xl font-bold mb-2">50+</div>
+              <div className="text-4xl font-bold mb-2">15</div>
               <div className="text-white/80">Awards Won</div>
             </div>
           </div>
