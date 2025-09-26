@@ -22,12 +22,12 @@ const Services: React.FC = () => {
 
   // Visual tokens (no Tailwind dependency)
   const gradientById: Record<string, { gradient: string; color: string }> = {
-    'mobile-dev': { gradient: 'linear-gradient(135deg,rgba(255,51,23,0.95) 0%,rgba(34,34,34,0.85) 100%)', color: '#ff3317' },
-    'web-dev': { gradient: 'linear-gradient(135deg,rgba(34,34,34,0.9) 0%,rgba(0,0,0,0.8) 100%)', color: '#0f0f0f' },
-    'cloud-services': { gradient: 'linear-gradient(135deg,rgba(0,0,0,0.9) 0%,rgba(255,51,23,0.75) 100%)', color: '#ff3317' },
-    'devops': { gradient: 'linear-gradient(135deg,rgba(34,34,34,0.95) 0%,rgba(0,0,0,0.75) 100%)', color: '#212121' },
-    'ai-ml': { gradient: 'linear-gradient(135deg,rgba(255,51,23,0.85) 0%,rgba(255,115,91,0.75) 100%)', color: '#ff573b' },
-    'cybersecurity': { gradient: 'linear-gradient(135deg,rgba(0,0,0,0.92) 0%,rgba(255,51,23,0.8) 100%)', color: '#1b1b1b' }
+    'mobile-dev': { gradient: 'linear-gradient(135deg,#2563eb 0%,#06b6d4 100%)', color: '#2563eb' },
+    'web-dev': { gradient: 'linear-gradient(135deg,#7c3aed 0%,#ec4899 100%)', color: '#7c3aed' },
+    'cloud-services': { gradient: 'linear-gradient(135deg,#16a34a 0%,#14b8a6 100%)', color: '#16a34a' },
+    'devops': { gradient: 'linear-gradient(135deg,#f59e0b 0%,#ef4444 100%)', color: '#f59e0b' },
+    'ai-ml': { gradient: 'linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%)', color: '#4f46e5' },
+    'cybersecurity': { gradient: 'linear-gradient(135deg,#ef4444 0%,#ec4899 100%)', color: '#ef4444' }
   };
 
   const containerVariants = {

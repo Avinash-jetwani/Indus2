@@ -168,17 +168,17 @@ body {
 
 /* Gradients */
 .bg-gradient-primary {
-  background: linear-gradient(135deg, rgb(255, 51, 23) 0%, rgba(0, 0, 0, 0.85) 100%);
+  background: linear-gradient(135deg, rgb(223, 74, 37) 0%, rgb(255, 255, 255) 100%);
 }
 
 .bg-gradient-hero {
-  background: radial-gradient(circle at 20% 20%, rgba(255, 51, 23, 0.35), transparent 55%),
-              radial-gradient(circle at 80% 0%, rgba(34, 34, 34, 0.6), transparent 60%),
-              linear-gradient(135deg, rgb(24, 24, 24) 0%, rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0.92) 100%);
+  background: radial-gradient(circle at 25% 25%, rgba(79, 70, 229, 0.18), transparent 55%),
+              radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.17), transparent 55%),
+              linear-gradient(135deg, #1e293b 0%, #7c3aed 50%, #1e293b 100%);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, rgb(255, 51, 23) 0%, rgba(255, 255, 255, 0.85) 100%);
+  background: linear-gradient(135deg, rgb(223, 74, 37) 0%, rgb(255, 255, 255) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -186,7 +186,7 @@ body {
 
 /* Stronger, high-contrast gradient text for dark backgrounds */
 .text-gradient-strong {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 51, 23, 0.9) 100%);
+  background: linear-gradient(135deg, #a5b4fc 0%, #60a5fa 40%, #f472b6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -564,10 +564,9 @@ body {
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 20% 30%, rgba(255, 51, 23, 0.18) 0%, rgba(255, 51, 23, 0.03) 45%, transparent 70%),
-    radial-gradient(circle at 80% 25%, rgba(0, 0, 0, 0.45) 0%, transparent 60%),
-    radial-gradient(circle at 50% 80%, rgba(34, 34, 34, 0.5) 0%, transparent 65%);
-  opacity: 0.9;
+    radial-gradient(circle at 25% 25%, rgba(79, 70, 229, 0.18) 0%, transparent 55%),
+    radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.17) 0%, transparent 55%);
+  opacity: 0.7;
 }
 
 .hero-content {
@@ -583,7 +582,7 @@ body {
 .hero-cta {
   display: flex;
   justify-content: center;
-  margin-bottom: 5rem;
+  margin-bottom: 6rem;
 }
 
 .hero-stats {
@@ -591,7 +590,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 3rem;
-  padding-top: 2.5rem;
+  padding-top: 2.25rem;
   border-top: 1px solid rgba(255, 255, 255, 0.25);
   margin: 0 auto;
   max-width: 720px;
@@ -603,8 +602,8 @@ body {
   flex: 1 1 100%;
   max-width: 560px;
   height: 1px;
-  background: linear-gradient(90deg, rgba(255, 51, 23, 0), rgba(255, 51, 23, 0.4), rgba(255, 51, 23, 0));
-  margin: 0 auto 1.75rem;
+  background: linear-gradient(90deg, rgba(223, 74, 37, 0), rgba(223, 74, 37, 0.6), rgba(223, 74, 37, 0));
+  margin: 0 auto 1.5rem;
 }
 
 .hero-stat {
@@ -619,11 +618,9 @@ body {
 }
 
 .hero-stat-label {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
   font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
 }
 
 /* Navigation */
@@ -670,32 +667,32 @@ body {
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.9);
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .nav-link:hover {
-  color: rgb(255, 51, 23);
+  color: white;
 }
 
 .navbar--scrolled .nav-link {
-  color: rgba(34, 34, 34, 0.75);
+  color: #4b5563;
 }
 
 .navbar--scrolled .nav-link:hover {
-  color: rgb(255, 51, 23);
+  color: rgb(223, 74, 37);
 }
 
 .nav-link--active {
-  color: rgb(255, 51, 23);
+  color: rgb(255, 186, 164);
 }
 
 .navbar--scrolled .nav-link--active {
-  color: rgb(255, 51, 23);
+  color: rgb(223, 74, 37);
 }
 
 .nav-cta button {
-  background: rgb(255, 51, 23);
+  background: rgb(223, 74, 37);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -704,7 +701,7 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 16px rgba(255, 51, 23, 0.35);
+  box-shadow: 0 4px 12px rgba(223, 74, 37, 0.3);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -712,7 +709,7 @@ body {
 
 .nav-cta button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(255, 51, 23, 0.45);
+  box-shadow: 0 8px 20px rgba(223, 74, 37, 0.4);
 }
 
 .nav-toggle {

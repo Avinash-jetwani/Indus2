@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
                     viewport={{ once: true }}
                     className="contact-item"
                   >
-                    <div className="contact-item-icon" style={{ background: 'rgba(255, 51, 23, 0.12)' }}>
+                    <div className="contact-item-icon">
                       <info.icon size={20} style={{ color: '#2563eb' }} />
                     </div>
                     <div>
