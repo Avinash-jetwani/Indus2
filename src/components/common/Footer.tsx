@@ -42,20 +42,10 @@ const Footer: React.FC = () => {
             gap: '1rem',
             marginBottom: '1rem'
           }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem' }}>
+            <div className="footer-contact">
               <a 
                 href={`mailto:${companyInfo.email}`}
-                style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  gap: '0.5rem', 
-                  color: '#cbd5e1', 
-                  textDecoration: 'none',
-                  fontSize: '0.95rem',
-                  transition: 'color 0.3s ease'
-                }}
-                onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = 'white'}
-                onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = '#cbd5e1'}
+                className="footer-link"
               >
                 <Mail size={18} />
                 <span>{companyInfo.email}</span>
@@ -63,17 +53,7 @@ const Footer: React.FC = () => {
               
               <a 
                 href={`tel:${companyInfo.phone}`}
-                style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  gap: '0.5rem', 
-                  color: '#cbd5e1', 
-                  textDecoration: 'none',
-                  fontSize: '0.95rem',
-                  transition: 'color 0.3s ease'
-                }}
-                onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = 'white'}
-                onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = '#cbd5e1'}
+                className="footer-link"
               >
                 <Phone size={18} />
                 <span>{companyInfo.phone}</span>

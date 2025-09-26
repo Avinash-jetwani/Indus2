@@ -114,7 +114,7 @@ const About: React.FC = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+            <div className="about-image-grid">
               <motion.img
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -123,7 +123,6 @@ const About: React.FC = () => {
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600"
                 alt="Team collaboration"
                 className="rounded-xl shadow-xl hover-scale"
-                style={{ width: '100%', height: '260px', objectFit: 'cover' }}
               />
               <motion.img
                 initial={{ opacity: 0, y: -20 }}
@@ -133,7 +132,6 @@ const About: React.FC = () => {
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600"
                 alt="Office meeting"
                 className="rounded-xl shadow-xl hover-scale"
-                style={{ width: '100%', height: '260px', objectFit: 'cover' }}
               />
               <motion.img
                 initial={{ opacity: 0, y: 20 }}
@@ -143,7 +141,6 @@ const About: React.FC = () => {
                 src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600"
                 alt="Working on project"
                 className="rounded-xl shadow-xl hover-scale"
-                style={{ width: '100%', height: '260px', objectFit: 'cover' }}
               />
               <motion.img
                 initial={{ opacity: 0, y: -20 }}
@@ -153,11 +150,9 @@ const About: React.FC = () => {
                 src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600"
                 alt="Team discussion"
                 className="rounded-xl shadow-xl hover-scale"
-                style={{ width: '100%', height: '260px', objectFit: 'cover' }}
               />
             </div>
-            
-            {/* Decorative Elements */}
+
             <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full">
               <div className="w-72 h-72 bg-primary-100 rounded-full filter blur-3xl opacity-30" />
             </div>

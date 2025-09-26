@@ -1,9 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
-import { ArrowRight, Sparkles, Code, Cloud, Shield, Smartphone, Database, Cpu, Globe, Zap } from 'lucide-react';
-import Button from '../common/Button';
-import { companyInfo } from '../../data/content';
+import { ArrowRight, Sparkles, Code, Cloud, Shield, Smartphone, Database, Cpu } from 'lucide-react';
+import { statistics } from '../../data/content';
 
 const Hero: React.FC = () => {
   const floatingIcons = [
@@ -14,6 +13,18 @@ const Hero: React.FC = () => {
     { Icon: Database, delay: 2, x: '75%', y: '45%' },
     { Icon: Cpu, delay: 2.5, x: '20%', y: '45%' },
   ];
+
+  const statLabelMap: Record<string, string> = {
+    'Projects Completed': 'Projects',
+    'Happy Clients': 'Clients',
+    'Team Members': 'Team',
+    'Years of Experience': 'Years'
+  };
+
+  const displayStats = statistics.slice(0, 4).map((stat) => ({
+    ...stat,
+    label: statLabelMap[stat.label] || stat.label
+  }));
 
   return (
     <section id="home" className="hero">
@@ -186,11 +197,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              marginBottom: '6rem'
-            }}
+            className="hero-cta"
           >
             <Link to="contact" smooth={true} duration={500}>
               <motion.button 
@@ -225,45 +232,18 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-              gap: '3rem',
-              paddingTop: '2rem',
-              borderTop: '1px solid rgba(255, 255, 255, 0.2)'
-            }}
+            className="hero-stats"
           >
-            {[
-              { value: '80', label: 'Projects' },
-              { value: '15', label: 'Clients' },
-              { value: '15', label: 'Team' },
-              { value: '5', label: 'Years' },
-            ].map((stat, index) => (
+            {displayStats.map((stat, index) => (
               <motion.div
-                key={index}
+                key={stat.id}
+                className="hero-stat"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
-                style={{ 
-                  textAlign: 'center'
-                }}
               >
-                <div style={{ 
-                  fontSize: '1.5rem', 
-                  fontWeight: '700', 
-                  color: 'white', 
-                  marginBottom: '0.25rem' 
-                }}>
-                  {stat.value}
-                </div>
-                <div style={{ 
-                  color: 'rgba(255,255,255,0.7)', 
-                  fontSize: '0.875rem',
-                  fontWeight: '500'
-                }}>
-                  {stat.label}
-                </div>
+                <div className="hero-stat-value">{stat.value}</div>
+                <div className="hero-stat-label">{stat.label.replace('Completed', '').replace('Happy ', '')}</div>
               </motion.div>
             ))}
           </motion.div>

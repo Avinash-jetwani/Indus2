@@ -24,7 +24,7 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" style={{ padding: '5rem 0', background: '#f8fafc' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
         <SectionTitle
           subtitle="Get In Touch"
           title="Let's Build Something Amazing Together"
@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
         />
 
         {/* Contact Information Cards */}
-        <div style={{ marginTop: '4rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '900px', margin: '4rem auto 0' }}>
+        <div className="contact-grid" style={{ maxWidth: '900px', margin: '4rem auto 0' }}>
           {/* Contact Details Card */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -41,13 +41,7 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div style={{ 
-              background: 'white', 
-              padding: '2rem', 
-              borderRadius: '1rem', 
-              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-              height: '100%'
-            }}>
+            <div className="contact-card">
               <h3 style={{ 
                 fontSize: '1.25rem', 
                 fontWeight: '700', 
@@ -58,7 +52,7 @@ const Contact: React.FC = () => {
                 Contact Information
               </h3>
               
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div className="contact-items">
                 {contactInfo.map((info, index) => (
                   <motion.a
                     key={index}
@@ -67,34 +61,9 @@ const Contact: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    style={{ 
-                      display: 'flex', 
-                      alignItems: 'center', 
-                      gap: '1rem', 
-                      textDecoration: 'none',
-                      color: 'inherit',
-                      padding: '1rem',
-                      borderRadius: '0.75rem',
-                      transition: 'background-color 0.2s',
-                      border: '1px solid #e5e7eb'
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.backgroundColor = '#f8fafc';
-                      (e.currentTarget as HTMLElement).style.borderColor = '#2563eb';
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.backgroundColor = 'transparent';
-                      (e.currentTarget as HTMLElement).style.borderColor = '#e5e7eb';
-                    }}
+                    className="contact-item"
                   >
-                    <div style={{ 
-                      background: '#eef2ff', 
-                      padding: '0.75rem', 
-                      borderRadius: '0.5rem',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center'
-                    }}>
+                    <div className="contact-item-icon">
                       <info.icon size={20} style={{ color: '#2563eb' }} />
                     </div>
                     <div>
@@ -123,13 +92,7 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div style={{ 
-              background: 'white', 
-              padding: '2rem', 
-              borderRadius: '1rem', 
-              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-              height: '100%'
-            }}>
+            <div className="contact-card">
               <h3 style={{ 
                 fontSize: '1.25rem', 
                 fontWeight: '700', 
@@ -140,24 +103,16 @@ const Contact: React.FC = () => {
                 Office Hours
               </h3>
               
-              <div style={{ 
-                display: 'flex', 
-                flexDirection: 'column', 
-                gap: '0.75rem',
-                background: '#f8fafc',
-                padding: '1.5rem',
-                borderRadius: '0.75rem',
-                marginBottom: '1.5rem'
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.95rem' }}>
+              <div className="contact-hours">
+                <div className="contact-hours-row">
                   <span style={{ color: '#374151', fontWeight: '500' }}>Monday - Friday</span>
                   <span style={{ color: '#6b7280' }}>9:00 AM - 6:00 PM</span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.95rem' }}>
+                <div className="contact-hours-row">
                   <span style={{ color: '#374151', fontWeight: '500' }}>Saturday</span>
                   <span style={{ color: '#6b7280' }}>10:00 AM - 4:00 PM</span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.95rem' }}>
+                <div className="contact-hours-row">
                   <span style={{ color: '#374151', fontWeight: '500' }}>Sunday</span>
                   <span style={{ color: '#6b7280' }}>Closed</span>
                 </div>

@@ -93,8 +93,8 @@ const Technologies: React.FC = () => {
           layout
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
-            gap: '1.25rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+            gap: '1rem',
             maxWidth: '1100px',
             margin: '0 auto'
           }}
@@ -120,7 +120,7 @@ const Technologies: React.FC = () => {
                   minHeight: '110px'
                 }}
               >
-                <div style={{ width: '32px', height: '32px' }}>
+                <div style={{ width: '28px', height: '28px' }}>
                   <img
                     src={techLogos[tech.id] || 'https://via.placeholder.com/32'}
                     alt={tech.name}

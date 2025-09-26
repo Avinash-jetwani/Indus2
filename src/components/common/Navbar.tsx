@@ -28,48 +28,28 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 50,
-        transition: 'all 0.3s ease',
-        padding: '0.75rem 0',
-        background: isScrolled 
-          ? 'rgba(255, 255, 255, 0.85)' 
-          : 'rgba(255, 255, 255, 0.1)',
-        backdropFilter: 'blur(25px)',
-        boxShadow: isScrolled 
-          ? '0 8px 32px rgba(0, 0, 0, 0.1)' 
-          : '0 8px 32px rgba(0, 0, 0, 0.05)',
-        borderBottom: isScrolled 
-          ? '1px solid rgba(0, 0, 0, 0.05)' 
-          : '1px solid rgba(255, 255, 255, 0.1)'
-      }}>
-        <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '0 2rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3rem' }}>
-            {/* Logo */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              style={{ display: 'flex', alignItems: 'center' }}
-            >
-            <img 
+      <nav className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`}>
+        <div className="nav-inner">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            style={{ display: 'flex', alignItems: 'center' }}
+          >
+            <img
               src={`${import.meta.env.BASE_URL}logo.png`}
-              alt="Indus2 Logo" 
-              style={{ 
-                height: '48px', 
-                width: 'auto', 
+              alt="Indus2 Logo"
+              style={{
+                height: '48px',
+                width: 'auto',
                 objectFit: 'contain',
                 borderRadius: '0.5rem',
                 boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
               }}
             />
-            </motion.div>
+          </motion.div>
 
-            {/* Navigation Links */}
+          <div className="nav-links">
             {navItems.map((item, index) => (
               <motion.div
                 key={item.id}
@@ -84,151 +64,82 @@ const Navbar: React.FC = () => {
                   duration={500}
                   offset={-80}
                   onSetActive={() => setActiveSection(item.id)}
-                  style={{
-                    display: 'block',
-                    padding: '0.5rem 1rem',
-                    borderRadius: '0.5rem',
-                    color: activeSection === item.id 
-                      ? (isScrolled ? 'rgb(223, 74, 37)' : 'rgb(255, 186, 164)')
-                      : (isScrolled ? '#6b7280' : 'rgba(255, 255, 255, 0.9)'),
-                    fontWeight: activeSection === item.id ? '600' : '500',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    textDecoration: 'none',
-                    background: 'transparent',
-                    fontSize: '0.95rem'
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = isScrolled ? 'rgb(223, 74, 37)' : 'white';
-                  }}
-                  onMouseLeave={(e) => {
-                    if (activeSection !== item.id) {
-                      (e.currentTarget as HTMLElement).style.color = isScrolled ? '#6b7280' : 'rgba(255, 255, 255, 0.9)';
-                    } else {
-                      (e.currentTarget as HTMLElement).style.color = isScrolled ? 'rgb(223, 74, 37)' : 'rgb(255, 186, 164)';
-                    }
-                  }}
+                  className={`nav-link ${activeSection === item.id ? 'nav-link--active' : ''}`}
                 >
                   {item.label}
                 </Link>
               </motion.div>
             ))}
-            
-            {/* CTA Button */}
+          </div>
+
+          <div className="nav-cta">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.7 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
             >
               <Link to="contact" smooth={true} duration={500}>
-                <button                 style={{
-                  background: 'rgb(223, 74, 37)',
-                  color: 'white',
-                  border: 'none',
-                  padding: '0.75rem 1.5rem',
-                  borderRadius: '0.75rem',
-                  fontSize: '0.95rem',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  boxShadow: '0 4px 12px rgba(223, 74, 37, 0.3)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem'
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
-                  (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 20px rgba(223, 74, 37, 0.4)';
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
-                  (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 12px rgba(223, 74, 37, 0.3)';
-                }}
-                >
+                <button type="button">
                   Get Started
                   <Sparkles size={14} />
                 </button>
               </Link>
             </motion.div>
           </div>
+
+          <button
+            type="button"
+            className={`nav-toggle ${isMobileMenuOpen ? 'is-open' : ''}`}
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+            aria-label="Toggle navigation menu"
+          >
+            <span />
+          </button>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            style={{
-              position: 'fixed',
-              top: '88px',
-              left: 0,
-              right: 0,
-              background: 'rgba(255, 255, 255, 0.95)',
-              backdropFilter: 'blur(20px)',
-              boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)',
-              zIndex: 40,
-              border: '1px solid rgba(0, 0, 0, 0.05)'
-            }}
+            transition={{ duration: 0.25 }}
+            className="mobile-menu"
           >
-            <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '2rem 1rem' }}>
+            <div className="mobile-menu-content">
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.id}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -15 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  transition={{ duration: 0.2, delay: index * 0.05 }}
                 >
                   <Link
                     to={item.id}
                     spy={true}
                     smooth={true}
                     duration={500}
-                    offset={-80}
+                    offset={-70}
+                    className="mobile-nav-link"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    style={{
-                      display: 'block',
-                      padding: '1rem 1.5rem',
-                      color: '#374151',
-                      textDecoration: 'none',
-                      borderRadius: '0.75rem',
-                      marginBottom: '0.5rem',
-                      fontWeight: '500',
-                      transition: 'all 0.3s ease',
-                      cursor: 'pointer'
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.background = 'rgba(37, 99, 235, 0.1)';
-                      (e.currentTarget as HTMLElement).style.color = '#2563eb';
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.background = 'transparent';
-                      (e.currentTarget as HTMLElement).style.color = '#374151';
-                    }}
                   >
                     {item.label}
                   </Link>
                 </motion.div>
               ))}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.3 }}
+                transition={{ duration: 0.2, delay: 0.3 }}
               >
-                <Link
-                  to="contact"
-                  smooth={true}
-                  duration={500}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
+                <Link to="contact" smooth={true} duration={500} onClick={() => setIsMobileMenuOpen(false)}>
                   <button
+                    type="button"
                     style={{
                       width: '100%',
                       marginTop: '1rem',
-                      background: 'linear-gradient(135deg, #2563eb 0%, #9333ea 100%)',
+                      background: 'rgb(223, 74, 37)',
                       color: 'white',
                       border: 'none',
                       padding: '1rem 2rem',
@@ -237,7 +148,7 @@ const Navbar: React.FC = () => {
                       fontWeight: '600',
                       cursor: 'pointer',
                       transition: 'all 0.3s ease',
-                      boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+                      boxShadow: '0 4px 12px rgba(223, 74, 37, 0.3)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
