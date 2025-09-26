@@ -7,6 +7,7 @@ interface CardProps {
   gradient?: boolean;
   dark?: boolean;
   padding?: 'none' | 'sm' | 'md' | 'lg';
+  style?: React.CSSProperties;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -15,7 +16,8 @@ const Card: React.FC<CardProps> = ({
   hover = true,
   gradient = false,
   dark = false,
-  padding = 'md'
+  padding = 'md',
+  style
 }) => {
   const paddingStyles = {
     none: '',
@@ -43,6 +45,7 @@ const Card: React.FC<CardProps> = ({
         ${paddingStyles[padding]}
         ${className}
       `}
+      style={style}
     >
       {children}
     </div>

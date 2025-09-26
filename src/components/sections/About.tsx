@@ -185,12 +185,21 @@ const About: React.FC = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="text-center h-full group" style={{ padding: '2rem', background: 'rgba(13, 22, 34, 0.88)', border: '1px solid rgba(255,255,255,0.05)', boxShadow: '0 12px 32px rgba(6, 12, 20, 0.45)' }}>
+                <Card
+                  className="text-center h-full group"
+                  style={{
+                    padding: '2rem',
+                    background: 'rgba(248, 250, 252, 0.96)',
+                    border: '1px solid rgba(15, 23, 42, 0.08)',
+                    boxShadow: '0 12px 26px rgba(8, 15, 26, 0.18)',
+                    color: '#0f172a'
+                  }}
+                >
                   <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${value.color} mb-4 group-hover:scale-110 transition-transform`}>
                     <value.icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2" style={{ color: '#f8fafc' }}>{value.title}</h3>
-                  <p style={{ color: 'rgba(223, 227, 235, 0.78)' }}>{value.description}</p>
+                  <h3 className="text-xl font-semibold mb-2" style={{ color: '#0f172a' }}>{value.title}</h3>
+                  <p style={{ color: 'rgba(30, 41, 59, 0.75)' }}>{value.description}</p>
                 </Card>
               </motion.div>
             ))}
@@ -217,12 +226,20 @@ const About: React.FC = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="text-center h-full transition-colors" style={{ background: 'rgba(13, 22, 34, 0.9)', border: '1px solid rgba(255,255,255,0.05)', boxShadow: '0 12px 30px rgba(6, 12, 20, 0.42)' }}>
+                <Card
+                  className="text-center h-full transition-colors"
+                  style={{
+                    background: 'rgba(248, 250, 252, 0.96)',
+                    border: '1px solid rgba(15, 23, 42, 0.08)',
+                    boxShadow: '0 12px 24px rgba(8, 15, 26, 0.16)',
+                    color: '#0f172a'
+                  }}
+                >
                   <div className="inline-flex p-4 rounded-full" style={{ background: 'rgba(249, 115, 22, 0.1)', marginBottom: '1.3rem' }}>
                     <item.icon className="w-10 h-10" style={{ color: '#fb923c' }} />
                   </div>
-                  <h3 className="text-2xl font-bold mb-3" style={{ color: '#f8fafc' }}>{item.title}</h3>
-                  <p className="mb-4" style={{ color: 'rgba(223, 227, 235, 0.78)' }}>{item.description}</p>
+                  <h3 className="text-2xl font-bold mb-3" style={{ color: '#0f172a' }}>{item.title}</h3>
+                  <p className="mb-4" style={{ color: 'rgba(30, 41, 59, 0.74)' }}>{item.description}</p>
                   <div className="text-3xl font-bold" style={{ background: 'linear-gradient(135deg,#f97316,#fb923c)', WebkitBackgroundClip: 'text', color: 'transparent' }}>{item.stats}</div>
                 </Card>
               </motion.div>

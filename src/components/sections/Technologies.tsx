@@ -116,21 +116,21 @@ const Technologies: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.2, delay: index * 0.02 }}
             >
-              <div
-                style={{
-                  padding: '1.2rem',
-                  textAlign: 'center',
-                  borderRadius: '0.85rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  gap: '0.55rem',
-                  minHeight: '130px',
-                  background: 'rgba(13, 22, 34, 0.85)',
-                  border: '1px solid rgba(255,255,255,0.05)',
-                  boxShadow: '0 10px 26px rgba(6, 12, 20, 0.35)'
-                }}
-              >
+                <div
+                  style={{
+                    padding: '1.2rem',
+                    textAlign: 'center',
+                    borderRadius: '0.85rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '0.55rem',
+                    minHeight: '130px',
+                    background: 'rgba(248, 250, 252, 0.96)',
+                    border: '1px solid rgba(15, 23, 42, 0.08)',
+                    boxShadow: '0 10px 22px rgba(8, 15, 26, 0.16)'
+                  }}
+                >
                 <div style={{ width: '34px', height: '34px' }}>
                   <img
                     src={techLogos[tech.id] || 'https://via.placeholder.com/32'}
@@ -146,7 +146,7 @@ const Technologies: React.FC = () => {
                     }}
                   />
                 </div>
-                <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#f8fafc' }}>{tech.name}</div>
+                <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0f172a' }}>{tech.name}</div>
                 <div
                   style={{
                     borderRadius: '9999px',

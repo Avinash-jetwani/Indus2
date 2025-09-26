@@ -75,15 +75,14 @@ const Services: React.FC = () => {
             const visual = gradientById[service.id] || { gradient: 'linear-gradient(135deg,#df4a25 0%,#f97316 100%)', color: '#df4a25' };
             return (
               <motion.div key={service.id} variants={itemVariants}>
-                <div
-                  className="card"
-                  style={{ 
-                    padding: '2.2rem', 
-                    height: '100%', 
-                    border: '1px solid rgba(255,255,255,0.05)', 
-                    borderRadius: '1rem',
-                    background: 'linear-gradient(155deg, rgba(15, 23, 42, 0.85), rgba(12, 20, 34, 0.88))',
-                    boxShadow: '0 18px 36px rgba(6, 12, 20, 0.5)'
+                <Card
+                  className="h-full"
+                  style={{
+                    padding: '2.2rem',
+                    background: 'rgba(248, 250, 252, 0.96)',
+                    border: '1px solid rgba(15, 23, 42, 0.08)',
+                    boxShadow: '0 16px 30px rgba(8, 15, 26, 0.18)',
+                    color: '#0f172a'
                   }}
                 >
                   {/* Icon */}
@@ -94,15 +93,15 @@ const Services: React.FC = () => {
                   </div>
 
                   {/* Content */}
-                  <h3 style={{ fontSize: '1.45rem', fontWeight: 700, marginBottom: '0.75rem', color: '#f8fafc' }}>{service.title}</h3>
-                  <p style={{ color: 'rgba(226, 232, 240, 0.78)', marginBottom: '1.1rem' }}>{service.description}</p>
+                  <h3 style={{ fontSize: '1.45rem', fontWeight: 700, marginBottom: '0.75rem', color: '#0f172a' }}>{service.title}</h3>
+                  <p style={{ color: 'rgba(30, 41, 59, 0.78)', marginBottom: '1.1rem' }}>{service.description}</p>
 
                   {/* Features */}
                   <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gap: '0.5rem', marginBottom: '1.25rem' }}>
                     {service.features.slice(0, 4).map((feature, index) => (
                       <li key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
                         <CheckCircle style={{ width: '18px', height: '18px', color: '#f97316', marginTop: '2px', flexShrink: 0 }} />
-                        <span style={{ color: 'rgba(199, 210, 221, 0.9)', fontSize: '0.95rem' }}>{feature}</span>
+                        <span style={{ color: 'rgba(30, 41, 59, 0.75)', fontSize: '0.95rem' }}>{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -117,7 +116,7 @@ const Services: React.FC = () => {
                       <ArrowRight style={{ width: '18px', height: '18px', marginLeft: '0.5rem' }} />
                     </button>
                   </Link>
-                </div>
+                </Card>
               </motion.div>
             );
           })}
