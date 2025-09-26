@@ -45,22 +45,23 @@ const Technologies: React.FC = () => {
   };
 
   const categoryColors: Record<string, string> = {
-    'Frontend': 'from-blue-500 to-cyan-500',
-    'Backend': 'from-purple-500 to-pink-500',
-    'Mobile': 'from-green-500 to-teal-500',
-    'Cloud': 'from-orange-500 to-red-500',
-    'DevOps': 'from-indigo-500 to-purple-500',
-    'Database': 'from-red-500 to-pink-500',
+    'Frontend': 'linear-gradient(135deg,#f97316,#fb923c)',
+    'Backend': 'linear-gradient(135deg,#fb923c,#f97316)',
+    'Mobile': 'linear-gradient(135deg,#f97316,#ea580c)',
+    'Cloud': 'linear-gradient(135deg,#df4a25,#f97316)',
+    'DevOps': 'linear-gradient(135deg,#f97316,#facc15)',
+    'Database': 'linear-gradient(135deg,#ea580c,#df4a25)',
   };
 
   return (
-    <section id="technologies" className="section-padding bg-gray-50">
+    <section id="technologies" className="section-padding" style={{ background: '#101b27' }}>
       <div className="container-custom">
         <SectionTitle
           subtitle="Our Tech Stack"
           title="Cutting-Edge Technologies"
           description="We leverage the latest and most powerful technologies to build scalable, robust, and innovative solutions."
           align="center"
+          tone="dark"
         />
 
         {/* Category Filter */}
@@ -76,12 +77,20 @@ const Technologies: React.FC = () => {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-1.5 text-sm rounded-full font-medium transition-all duration-300 ${
-                selectedCategory === category
-                  ? 'bg-gradient-primary text-white shadow-lg scale-105'
-                  : 'bg-white text-gray-600 hover:bg-gray-100 hover:shadow-md'
-              }`}
-              style={{ marginBottom: '0.5rem' }}
+              style={{
+                padding: '0.6rem 1.25rem',
+                borderRadius: '9999px',
+                fontSize: '0.85rem',
+                fontWeight: 600,
+                transition: 'all 0.3s ease',
+                marginBottom: '0.5rem',
+                color: selectedCategory === category ? '#0f172a' : 'rgba(226, 232, 240, 0.78)',
+                background: selectedCategory === category ? '#f97316' : 'rgba(15, 23, 42, 0.75)',
+                boxShadow: selectedCategory === category
+                  ? '0 12px 28px rgba(249, 115, 22, 0.35)'
+                  : '0 6px 18px rgba(6, 12, 20, 0.45)',
+                border: selectedCategory === category ? '1px solid rgba(255,255,255,0.14)' : '1px solid rgba(255,255,255,0.08)'
+              }}
             >
               {category}
             </button>
@@ -108,19 +117,21 @@ const Technologies: React.FC = () => {
               transition={{ duration: 0.2, delay: index * 0.02 }}
             >
               <div
-                className="card"
                 style={{
-                  padding: '1rem',
+                  padding: '1.2rem',
                   textAlign: 'center',
-                  borderRadius: '0.75rem',
+                  borderRadius: '0.85rem',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  gap: '0.5rem',
-                  minHeight: '110px'
+                  gap: '0.6rem',
+                  minHeight: '130px',
+                  background: 'rgba(12, 21, 33, 0.92)',
+                  border: '1px solid rgba(255,255,255,0.06)',
+                  boxShadow: '0 14px 35px rgba(6, 12, 20, 0.48)'
                 }}
               >
-                <div style={{ width: '28px', height: '28px' }}>
+                <div style={{ width: '34px', height: '34px' }}>
                   <img
                     src={techLogos[tech.id] || 'https://via.placeholder.com/32'}
                     alt={tech.name}
@@ -135,10 +146,16 @@ const Technologies: React.FC = () => {
                     }}
                   />
                 </div>
-                <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#374151' }}>{tech.name}</div>
+                <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#f8fafc' }}>{tech.name}</div>
                 <div
-                  className={`rounded-full bg-gradient-to-r ${categoryColors[tech.category]}`}
-                  style={{ padding: '2px 8px', fontSize: '0.7rem', color: '#fff' }}
+                  style={{
+                    borderRadius: '9999px',
+                    padding: '3px 10px',
+                    fontSize: '0.7rem',
+                    color: '#0f172a',
+                    background: categoryColors[tech.category],
+                    fontWeight: 600
+                  }}
                 >
                   {tech.category}
                 </div>
@@ -156,11 +173,11 @@ const Technologies: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
           className="text-center"
-          style={{ maxWidth: '800px', margin: '3rem auto 3rem', padding: '0 1rem' }}
+          style={{ maxWidth: '780px', margin: '3rem auto 3rem', padding: '0 1rem' }}
         >
-          <p className="text-lg text-gray-600" style={{ lineHeight: 1.7, margin: 0 }}>
+          <p style={{ lineHeight: 1.7, margin: 0, color: 'rgba(226, 232, 240, 0.78)', fontSize: '1.05rem' }}>
             We seamlessly integrate these technologies to create powerful,
-            <span style={{ color: '#2563eb', fontWeight: 600 }}> scalable solutions </span>
+            <span style={{ color: '#f97316', fontWeight: 600 }}> scalable solutions </span>
             tailored to your specific needs.
           </p>
         </motion.div>

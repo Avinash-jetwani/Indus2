@@ -22,12 +22,12 @@ const Services: React.FC = () => {
 
   // Visual tokens (no Tailwind dependency)
   const gradientById: Record<string, { gradient: string; color: string }> = {
-    'mobile-dev': { gradient: 'linear-gradient(135deg,#2563eb 0%,#06b6d4 100%)', color: '#2563eb' },
-    'web-dev': { gradient: 'linear-gradient(135deg,#7c3aed 0%,#ec4899 100%)', color: '#7c3aed' },
-    'cloud-services': { gradient: 'linear-gradient(135deg,#16a34a 0%,#14b8a6 100%)', color: '#16a34a' },
-    'devops': { gradient: 'linear-gradient(135deg,#f59e0b 0%,#ef4444 100%)', color: '#f59e0b' },
-    'ai-ml': { gradient: 'linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%)', color: '#4f46e5' },
-    'cybersecurity': { gradient: 'linear-gradient(135deg,#ef4444 0%,#ec4899 100%)', color: '#ef4444' }
+    'mobile-dev': { gradient: 'linear-gradient(135deg,#df4a25 0%,#f97316 100%)', color: '#df4a25' },
+    'web-dev': { gradient: 'linear-gradient(135deg,#f97316 0%,#fb923c 100%)', color: '#f97316' },
+    'cloud-services': { gradient: 'linear-gradient(135deg,#fb923c 0%,#f97316 100%)', color: '#fb923c' },
+    'devops': { gradient: 'linear-gradient(135deg,#df4a25 0%,#dc2626 100%)', color: '#df4a25' },
+    'ai-ml': { gradient: 'linear-gradient(135deg,#f97316 0%,#df4a25 100%)', color: '#f97316' },
+    'cybersecurity': { gradient: 'linear-gradient(135deg,#dc2626 0%,#df4a25 100%)', color: '#df4a25' }
   };
 
   const containerVariants = {
@@ -52,13 +52,14 @@ const Services: React.FC = () => {
   };
 
   return (
-    <section id="services" className="section-padding bg-gray-50" style={{ background: '#f7f8fb' }}>
+    <section id="services" className="section-padding" style={{ background: '#0b1521' }}>
       <div className="container-custom">
         <SectionTitle
           subtitle="What We Do"
           title="Comprehensive IT Solutions"
           description="We offer end-to-end technology services designed to transform your business and drive digital innovation."
           align="center"
+          tone="dark"
         />
 
         <motion.div
@@ -71,30 +72,37 @@ const Services: React.FC = () => {
         >
           {services.map((service) => {
             const Icon = iconMap[service.icon];
-            const visual = gradientById[service.id] || { gradient: 'linear-gradient(135deg,#2563eb 0%,#9333ea 100%)', color: '#2563eb' };
+            const visual = gradientById[service.id] || { gradient: 'linear-gradient(135deg,#df4a25 0%,#f97316 100%)', color: '#df4a25' };
             return (
               <motion.div key={service.id} variants={itemVariants}>
                 <div
                   className="card"
-                  style={{ padding: '2rem', height: '100%', border: '1px solid #eef0f4', borderRadius: '1rem' }}
+                  style={{ 
+                    padding: '2.25rem', 
+                    height: '100%', 
+                    border: '1px solid rgba(255,255,255,0.08)', 
+                    borderRadius: '1rem',
+                    background: 'linear-gradient(160deg, rgba(17, 24, 39, 0.92), rgba(13, 21, 30, 0.86))',
+                    boxShadow: '0 22px 45px rgba(4, 10, 18, 0.6)'
+                  }}
                 >
                   {/* Icon */}
                   <div
-                    style={{ display: 'inline-flex', padding: '0.75rem', borderRadius: '0.75rem', background: visual.gradient, marginBottom: '1rem' }}
+                    style={{ display: 'inline-flex', padding: '0.85rem', borderRadius: '0.85rem', background: visual.gradient, marginBottom: '1.1rem', boxShadow: '0 14px 30px rgba(223, 74, 37, 0.38)' }}
                   >
                     <Icon style={{ width: '28px', height: '28px', color: 'white' }} />
                   </div>
 
                   {/* Content */}
-                  <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.75rem' }}>{service.title}</h3>
-                  <p style={{ color: '#4b5563', marginBottom: '1rem' }}>{service.description}</p>
+                  <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.75rem', color: '#fef9c3' }}>{service.title}</h3>
+                  <p style={{ color: 'rgba(203, 213, 225, 0.85)', marginBottom: '1.15rem' }}>{service.description}</p>
 
                   {/* Features */}
                   <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gap: '0.5rem', marginBottom: '1.25rem' }}>
                     {service.features.slice(0, 4).map((feature, index) => (
                       <li key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
-                        <CheckCircle style={{ width: '18px', height: '18px', color: '#10b981', marginTop: '2px', flexShrink: 0 }} />
-                        <span style={{ color: '#4b5563', fontSize: '0.95rem' }}>{feature}</span>
+                        <CheckCircle style={{ width: '18px', height: '18px', color: '#f97316', marginTop: '2px', flexShrink: 0 }} />
+                        <span style={{ color: 'rgba(148, 163, 184, 0.95)', fontSize: '0.95rem' }}>{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -103,7 +111,7 @@ const Services: React.FC = () => {
                   <Link to="contact" smooth={true} duration={500}>
                     <button
                       className="btn btn-outline"
-                      style={{ borderColor: visual.color, color: visual.color }}
+                      style={{ borderColor: '#f97316', color: '#f97316', background: 'rgba(249, 115, 22, 0.08)' }}
                     >
                       Learn More
                       <ArrowRight style={{ width: '18px', height: '18px', marginLeft: '0.5rem' }} />
@@ -122,7 +130,7 @@ const Services: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="mt-16 text-center rounded-2xl p-12"
-          style={{ background: 'linear-gradient(135deg,#2563eb 0%,#9333ea 100%)' }}
+          style={{ background: 'linear-gradient(135deg,#df4a25 0%,#f97316 100%)', boxShadow: '0 25px 50px rgba(223, 74, 37, 0.35)' }}
         >
           <div style={{ maxWidth: '46rem', margin: '0 auto' }}>
             <h3 className="text-3xl font-bold text-white mb-4">
@@ -135,16 +143,16 @@ const Services: React.FC = () => {
               <button
                 className="btn"
                 style={{
-                  background: 'white',
-                  color: '#1f2937',
+                  background: '#0b1521',
+                  color: '#fef3c7',
                   padding: '0.9rem 1.25rem',
                   borderRadius: '0.75rem',
                   fontWeight: 700,
-                  boxShadow: '0 10px 25px rgba(0,0,0,0.15)'
+                  boxShadow: '0 18px 35px rgba(5, 10, 18, 0.45)'
                 }}
               >
                 Get a Free Consultation
-                <ArrowRight style={{ width: '18px', height: '18px', marginLeft: '0.5rem', color: '#2563eb' }} />
+                <ArrowRight style={{ width: '18px', height: '18px', marginLeft: '0.5rem', color: '#f97316' }} />
               </button>
             </Link>
           </div>

@@ -23,13 +23,14 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section id="contact" style={{ padding: '5rem 0', background: '#f8fafc' }}>
+    <section id="contact" style={{ padding: '5rem 0', background: '#0f172a' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
         <SectionTitle
           subtitle="Get In Touch"
           title="Let's Build Something Amazing Together"
           description="Ready to transform your ideas into reality? Get in touch with our team to discuss your project."
           align="center"
+          tone="dark"
         />
 
         {/* Contact Information Cards */}
@@ -41,12 +42,12 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="contact-card">
+            <div className="contact-card" style={{ background: '#111f2d', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 18px 45px rgba(0,0,0,0.35)' }}>
               <h3 style={{ 
                 fontSize: '1.25rem', 
                 fontWeight: '700', 
                 marginBottom: '1.5rem', 
-                color: '#111827',
+                color: '#fef3c7',
                 textAlign: 'center'
               }}>
                 Contact Information
@@ -62,20 +63,21 @@ const Contact: React.FC = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     className="contact-item"
+                    style={{ background: 'rgba(15, 23, 42, 0.65)', borderColor: 'rgba(255, 255, 255, 0.06)' }}
                   >
                     <div className="contact-item-icon">
-                      <info.icon size={20} style={{ color: '#2563eb' }} />
+                      <info.icon size={20} style={{ color: '#f97316' }} />
                     </div>
                     <div>
                       <h4 style={{ 
                         fontWeight: '600', 
-                        color: '#111827', 
+                        color: '#f1f5f9', 
                         marginBottom: '0.25rem',
                         fontSize: '1rem'
                       }}>
                         {info.title}
                       </h4>
-                      <p style={{ color: '#6b7280', fontSize: '0.875rem' }}>
+                      <p style={{ color: '#cbd5f5', fontSize: '0.875rem' }}>
                         {info.content}
                       </p>
                     </div>
@@ -92,12 +94,12 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="contact-card">
+            <div className="contact-card" style={{ background: '#111f2d', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 18px 45px rgba(0,0,0,0.35)' }}>
               <h3 style={{ 
                 fontSize: '1.25rem', 
                 fontWeight: '700', 
                 marginBottom: '1.5rem', 
-                color: '#111827',
+                color: '#fef3c7',
                 textAlign: 'center'
               }}>
                 Office Hours
@@ -105,36 +107,36 @@ const Contact: React.FC = () => {
               
               <div className="contact-hours">
                 <div className="contact-hours-row">
-                  <span style={{ color: '#374151', fontWeight: '500' }}>Monday - Friday</span>
-                  <span style={{ color: '#6b7280' }}>9:00 AM - 6:00 PM</span>
+                  <span style={{ color: '#f8fafc', fontWeight: '500' }}>Monday - Friday</span>
+                  <span style={{ color: '#cbd5f5' }}>9:00 AM - 6:00 PM</span>
                 </div>
                 <div className="contact-hours-row">
-                  <span style={{ color: '#374151', fontWeight: '500' }}>Saturday</span>
-                  <span style={{ color: '#6b7280' }}>10:00 AM - 4:00 PM</span>
+                  <span style={{ color: '#f8fafc', fontWeight: '500' }}>Saturday</span>
+                  <span style={{ color: '#cbd5f5' }}>10:00 AM - 4:00 PM</span>
                 </div>
                 <div className="contact-hours-row">
-                  <span style={{ color: '#374151', fontWeight: '500' }}>Sunday</span>
-                  <span style={{ color: '#6b7280' }}>Closed</span>
+                  <span style={{ color: '#f8fafc', fontWeight: '500' }}>Sunday</span>
+                  <span style={{ color: '#cbd5f5' }}>Closed</span>
                 </div>
               </div>
 
               {/* Global Service Highlight */}
               <div style={{ 
-                background: 'linear-gradient(135deg, #2563eb 0%, #9333ea 100%)',
+                background: 'linear-gradient(135deg, #df4a25 0%, #f97316 100%)',
                 padding: '1.5rem',
                 borderRadius: '0.75rem',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 gap: '0.75rem',
-                color: 'white',
+                color: '#0f172a',
                 textAlign: 'center'
               }}>
-                <Globe size={32} style={{ color: 'white' }} />
-                <span style={{ fontSize: '1rem', fontWeight: '600' }}>
+                <Globe size={32} style={{ color: '#0f172a' }} />
+                <span style={{ fontSize: '1rem', fontWeight: '700' }}>
                   We work with clients globally
                 </span>
-                <span style={{ fontSize: '0.875rem', opacity: 0.9 }}>
+                <span style={{ fontSize: '0.875rem', opacity: 0.85 }}>
                   Available across all time zones
                 </span>
               </div>

@@ -14,7 +14,7 @@ export const services: Service[] = [
       'App Store Optimization',
       'Mobile UI/UX Design'
     ],
-    color: 'from-blue-500 to-cyan-500'
+    color: 'from-orange-500 to-amber-500'
   },
   {
     id: 'web-dev',
@@ -29,7 +29,7 @@ export const services: Service[] = [
       'SaaS Platforms',
       'Web Performance Optimization'
     ],
-    color: 'from-purple-500 to-pink-500'
+    color: 'from-orange-500 to-rose-500'
   },
   {
     id: 'cloud-services',
@@ -44,7 +44,7 @@ export const services: Service[] = [
       'Container Orchestration',
       'Disaster Recovery'
     ],
-    color: 'from-green-500 to-teal-500'
+    color: 'from-slate-500 to-slate-700'
   },
   {
     id: 'devops',
@@ -59,7 +59,7 @@ export const services: Service[] = [
       'Automated Testing',
       'Security Automation'
     ],
-    color: 'from-orange-500 to-red-500'
+    color: 'from-orange-600 to-red-500'
   },
   {
     id: 'ai-ml',
@@ -74,7 +74,7 @@ export const services: Service[] = [
       'Chatbot Development',
       'Data Science Solutions'
     ],
-    color: 'from-indigo-500 to-purple-500'
+    color: 'from-orange-500 to-amber-400'
   },
   {
     id: 'cybersecurity',
@@ -89,7 +89,7 @@ export const services: Service[] = [
       'Incident Response',
       'Security Training'
     ],
-    color: 'from-red-500 to-pink-500'
+    color: 'from-rose-600 to-orange-600'
   }
 ];
 

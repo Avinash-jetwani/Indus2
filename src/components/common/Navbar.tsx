@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
                   duration={500}
                   offset={-80}
                   onSetActive={() => setActiveSection(item.id)}
-                  className={`nav-link ${activeSection === item.id ? 'nav-link--active' : ''}`}
+                      className={`nav-link ${activeSection === item.id ? 'nav-link--active' : ''}`}
                 >
                   {item.label}
                 </Link>

@@ -7,6 +7,7 @@ interface SectionTitleProps {
   description?: string;
   align?: 'left' | 'center' | 'right';
   gradient?: boolean;
+  tone?: 'light' | 'dark';
 }
 
 const SectionTitle: React.FC<SectionTitleProps> = ({
@@ -14,13 +15,24 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
   title,
   description,
   align = 'center',
-  gradient = true
+  gradient = true,
+  tone = 'light'
 }) => {
   const alignmentClasses = {
     left: 'text-left',
     center: 'text-center',
     right: 'text-right'
   };
+
+  const subtitleColor = tone === 'dark' ? '#f97316' : '#df4a25';
+  const headingClass = gradient
+    ? tone === 'dark'
+      ? 'text-gradient-strong'
+      : 'text-gradient'
+    : tone === 'dark'
+      ? 'text-white'
+      : 'text-gray-900';
+  const descriptionColor = tone === 'dark' ? 'rgba(226, 232, 240, 0.85)' : '#4b5563';
   
   return (
     <motion.div
@@ -37,7 +49,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
           style={{
-            color: 'rgb(255, 51, 23)',
+            color: subtitleColor,
             fontWeight: 600,
             fontSize: '0.75rem',
             letterSpacing: '0.4em',
@@ -54,9 +66,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
         viewport={{ once: true }}
-        className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${
-          gradient ? 'text-gradient' : 'text-gray-900'
-        }`}
+        className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${headingClass}`}
       >
         {title}
       </motion.h2>
@@ -67,7 +77,8 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="text-gray-600 text-lg leading-relaxed"
+          className="text-lg leading-relaxed"
+          style={{ color: descriptionColor }}
         >
           {description}
         </motion.p>

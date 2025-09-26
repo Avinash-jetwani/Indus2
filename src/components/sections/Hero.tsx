@@ -1,17 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
-import { ArrowRight, Sparkles, Code, Cloud, Shield, Smartphone, Database, Cpu } from 'lucide-react';
+import { ArrowRight, Sparkles, Code, Cloud, Shield, Smartphone, Database, Cpu, Server, Workflow } from 'lucide-react';
 import { statistics } from '../../data/content';
 
 const Hero: React.FC = () => {
   const floatingIcons = [
-    { Icon: Code, delay: 0, x: '8%', y: '25%' },
-    { Icon: Cloud, delay: 0.5, x: '85%', y: '20%' },
-    { Icon: Shield, delay: 1, x: '90%', y: '70%' },
-    { Icon: Smartphone, delay: 1.5, x: '12%', y: '75%' },
-    { Icon: Database, delay: 2, x: '75%', y: '45%' },
-    { Icon: Cpu, delay: 2.5, x: '20%', y: '45%' },
+    { Icon: Code, delay: 0, x: '5%', y: '22%' },
+    { Icon: Cloud, delay: 0.5, x: '82%', y: '18%' },
+    { Icon: Shield, delay: 1, x: '88%', y: '70%' },
+    { Icon: Smartphone, delay: 1.5, x: '10%', y: '72%' },
+    { Icon: Database, delay: 2, x: '70%', y: '48%' },
+    { Icon: Cpu, delay: 2.5, x: '22%', y: '48%' },
+    { Icon: Server, delay: 3, x: '58%', y: '26%' },
+    { Icon: Workflow, delay: 3.5, x: '38%', y: '68%' },
   ];
 
   const statLabelMap: Record<string, string> = {
@@ -46,11 +48,11 @@ const Hero: React.FC = () => {
             position: 'absolute',
             top: '10%',
             left: '10%',
-            width: '350px',
-            height: '350px',
-            background: 'radial-gradient(circle, rgba(59, 130, 246, 0.6) 0%, rgba(59, 130, 246, 0.2) 40%, transparent 70%)',
+            width: '420px',
+            height: '420px',
+            background: 'radial-gradient(circle, rgba(223, 74, 37, 0.45) 0%, rgba(223, 74, 37, 0.15) 42%, transparent 75%)',
             borderRadius: '50%',
-            filter: 'blur(30px)'
+            filter: 'blur(45px)'
           }}
         />
         
@@ -69,11 +71,11 @@ const Hero: React.FC = () => {
             position: 'absolute',
             top: '60%',
             right: '10%',
-            width: '300px',
-            height: '300px',
-            background: 'radial-gradient(circle, rgba(168, 85, 247, 0.6) 0%, rgba(168, 85, 247, 0.2) 40%, transparent 70%)',
+            width: '360px',
+            height: '360px',
+            background: 'radial-gradient(circle, rgba(17, 24, 39, 0.65) 0%, rgba(17, 24, 39, 0.25) 45%, transparent 75%)',
             borderRadius: '50%',
-            filter: 'blur(30px)'
+            filter: 'blur(40px)'
           }}
         />
 
@@ -83,7 +85,7 @@ const Hero: React.FC = () => {
             key={index}
             initial={{ opacity: 0, scale: 0 }}
             animate={{ 
-              opacity: [0.4, 0.7, 0.4], 
+                opacity: [0.35, 0.65, 0.35],
               scale: [0.8, 1, 0.8],
               y: [0, -15, 0],
               rotate: [0, 10, -10, 0]
