@@ -84,11 +84,11 @@ const Technologies: React.FC = () => {
                 fontWeight: 600,
                 transition: 'all 0.3s ease',
                 marginBottom: '0.5rem',
-                color: selectedCategory === category ? '#0f172a' : 'rgba(226, 232, 240, 0.78)',
-                background: selectedCategory === category ? '#f97316' : 'rgba(15, 23, 42, 0.75)',
+                color: selectedCategory === category ? '#0f172a' : 'rgba(226, 232, 240, 0.84)',
+                background: selectedCategory === category ? '#f97316' : 'rgba(15, 23, 42, 0.55)',
                 boxShadow: selectedCategory === category
-                  ? '0 12px 28px rgba(249, 115, 22, 0.35)'
-                  : '0 6px 18px rgba(6, 12, 20, 0.45)',
+                  ? '0 10px 24px rgba(249, 115, 22, 0.3)'
+                  : '0 4px 14px rgba(6, 12, 20, 0.32)',
                 border: selectedCategory === category ? '1px solid rgba(255,255,255,0.14)' : '1px solid rgba(255,255,255,0.08)'
               }}
             >
@@ -124,11 +124,11 @@ const Technologies: React.FC = () => {
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  gap: '0.6rem',
+                  gap: '0.55rem',
                   minHeight: '130px',
-                  background: 'rgba(12, 21, 33, 0.92)',
-                  border: '1px solid rgba(255,255,255,0.06)',
-                  boxShadow: '0 14px 35px rgba(6, 12, 20, 0.48)'
+                  background: 'rgba(13, 22, 34, 0.85)',
+                  border: '1px solid rgba(255,255,255,0.05)',
+                  boxShadow: '0 10px 26px rgba(6, 12, 20, 0.35)'
                 }}
               >
                 <div style={{ width: '34px', height: '34px' }}>

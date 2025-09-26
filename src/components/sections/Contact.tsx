@@ -42,7 +42,7 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="contact-card" style={{ background: '#111f2d', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 18px 45px rgba(0,0,0,0.35)' }}>
+            <div className="contact-card" style={{ background: 'rgba(13, 22, 34, 0.88)', border: '1px solid rgba(255,255,255,0.05)', boxShadow: '0 12px 28px rgba(6, 12, 20, 0.34)' }}>
               <h3 style={{ 
                 fontSize: '1.25rem', 
                 fontWeight: '700', 
@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     className="contact-item"
-                    style={{ background: 'rgba(15, 23, 42, 0.65)', borderColor: 'rgba(255, 255, 255, 0.06)' }}
+                    style={{ background: 'rgba(15, 23, 42, 0.4)', borderColor: 'rgba(255, 255, 255, 0.05)' }}
                   >
                     <div className="contact-item-icon">
                       <info.icon size={20} style={{ color: '#f97316' }} />
@@ -71,13 +71,13 @@ const Contact: React.FC = () => {
                     <div>
                       <h4 style={{ 
                         fontWeight: '600', 
-                        color: '#f1f5f9', 
+                        color: '#f8fafc', 
                         marginBottom: '0.25rem',
                         fontSize: '1rem'
                       }}>
                         {info.title}
                       </h4>
-                      <p style={{ color: '#cbd5f5', fontSize: '0.875rem' }}>
+                      <p style={{ color: 'rgba(224, 231, 255, 0.78)', fontSize: '0.88rem' }}>
                         {info.content}
                       </p>
                     </div>
@@ -94,7 +94,7 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="contact-card" style={{ background: '#111f2d', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 18px 45px rgba(0,0,0,0.35)' }}>
+            <div className="contact-card" style={{ background: 'rgba(13, 22, 34, 0.88)', border: '1px solid rgba(255,255,255,0.05)', boxShadow: '0 12px 28px rgba(6, 12, 20, 0.34)' }}>
               <h3 style={{ 
                 fontSize: '1.25rem', 
                 fontWeight: '700', 
@@ -105,38 +105,39 @@ const Contact: React.FC = () => {
                 Office Hours
               </h3>
               
-              <div className="contact-hours">
+              <div className="contact-hours" style={{ background: 'rgba(15, 23, 42, 0.45)', border: '1px solid rgba(255,255,255,0.05)' }}>
                 <div className="contact-hours-row">
                   <span style={{ color: '#f8fafc', fontWeight: '500' }}>Monday - Friday</span>
-                  <span style={{ color: '#cbd5f5' }}>9:00 AM - 6:00 PM</span>
+                  <span style={{ color: 'rgba(224, 231, 255, 0.78)' }}>9:00 AM - 6:00 PM</span>
                 </div>
                 <div className="contact-hours-row">
                   <span style={{ color: '#f8fafc', fontWeight: '500' }}>Saturday</span>
-                  <span style={{ color: '#cbd5f5' }}>10:00 AM - 4:00 PM</span>
+                  <span style={{ color: 'rgba(224, 231, 255, 0.78)' }}>10:00 AM - 4:00 PM</span>
                 </div>
                 <div className="contact-hours-row">
                   <span style={{ color: '#f8fafc', fontWeight: '500' }}>Sunday</span>
-                  <span style={{ color: '#cbd5f5' }}>Closed</span>
+                  <span style={{ color: 'rgba(224, 231, 255, 0.78)' }}>Closed</span>
                 </div>
               </div>
 
               {/* Global Service Highlight */}
               <div style={{ 
-                background: 'linear-gradient(135deg, #df4a25 0%, #f97316 100%)',
-                padding: '1.5rem',
+                background: 'linear-gradient(135deg, #f97316 0%, #fb923c 100%)',
+                padding: '1.35rem',
                 borderRadius: '0.75rem',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: '0.75rem',
+                gap: '0.7rem',
                 color: '#0f172a',
-                textAlign: 'center'
+                textAlign: 'center',
+                boxShadow: '0 12px 28px rgba(249, 115, 22, 0.32)'
               }}>
-                <Globe size={32} style={{ color: '#0f172a' }} />
+                <Globe size={30} style={{ color: '#0f172a' }} />
                 <span style={{ fontSize: '1rem', fontWeight: '700' }}>
                   We work with clients globally
                 </span>
-                <span style={{ fontSize: '0.875rem', opacity: 0.85 }}>
+                <span style={{ fontSize: '0.85rem', opacity: 0.8 }}>
                   Available across all time zones
                 </span>
               </div>

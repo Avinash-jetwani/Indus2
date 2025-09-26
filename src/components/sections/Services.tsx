@@ -78,31 +78,31 @@ const Services: React.FC = () => {
                 <div
                   className="card"
                   style={{ 
-                    padding: '2.25rem', 
+                    padding: '2.2rem', 
                     height: '100%', 
-                    border: '1px solid rgba(255,255,255,0.08)', 
+                    border: '1px solid rgba(255,255,255,0.05)', 
                     borderRadius: '1rem',
-                    background: 'linear-gradient(160deg, rgba(17, 24, 39, 0.92), rgba(13, 21, 30, 0.86))',
-                    boxShadow: '0 22px 45px rgba(4, 10, 18, 0.6)'
+                    background: 'linear-gradient(155deg, rgba(15, 23, 42, 0.85), rgba(12, 20, 34, 0.88))',
+                    boxShadow: '0 18px 36px rgba(6, 12, 20, 0.5)'
                   }}
                 >
                   {/* Icon */}
                   <div
-                    style={{ display: 'inline-flex', padding: '0.85rem', borderRadius: '0.85rem', background: visual.gradient, marginBottom: '1.1rem', boxShadow: '0 14px 30px rgba(223, 74, 37, 0.38)' }}
+                    style={{ display: 'inline-flex', padding: '0.8rem', borderRadius: '0.8rem', background: visual.gradient, marginBottom: '1rem', boxShadow: '0 12px 26px rgba(223, 74, 37, 0.28)' }}
                   >
                     <Icon style={{ width: '28px', height: '28px', color: 'white' }} />
                   </div>
 
                   {/* Content */}
-                  <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.75rem', color: '#fef9c3' }}>{service.title}</h3>
-                  <p style={{ color: 'rgba(203, 213, 225, 0.85)', marginBottom: '1.15rem' }}>{service.description}</p>
+                  <h3 style={{ fontSize: '1.45rem', fontWeight: 700, marginBottom: '0.75rem', color: '#f8fafc' }}>{service.title}</h3>
+                  <p style={{ color: 'rgba(226, 232, 240, 0.78)', marginBottom: '1.1rem' }}>{service.description}</p>
 
                   {/* Features */}
                   <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gap: '0.5rem', marginBottom: '1.25rem' }}>
                     {service.features.slice(0, 4).map((feature, index) => (
                       <li key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
                         <CheckCircle style={{ width: '18px', height: '18px', color: '#f97316', marginTop: '2px', flexShrink: 0 }} />
-                        <span style={{ color: 'rgba(148, 163, 184, 0.95)', fontSize: '0.95rem' }}>{feature}</span>
+                        <span style={{ color: 'rgba(199, 210, 221, 0.9)', fontSize: '0.95rem' }}>{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -136,19 +136,19 @@ const Services: React.FC = () => {
             <h3 className="text-3xl font-bold text-white mb-4">
               Ready to Transform Your Business?
             </h3>
-            <p style={{ color: 'rgba(255,255,255,0.92)', marginBottom: '1.75rem' }}>
+            <p style={{ color: 'rgba(248, 250, 252, 0.82)', marginBottom: '1.6rem' }}>
               Let's discuss how our services can help you achieve your digital transformation goals.
             </p>
             <Link to="contact" smooth={true} duration={500}>
               <button
                 className="btn"
                 style={{
-                  background: '#0b1521',
-                  color: '#fef3c7',
+                  background: '#101826',
+                  color: '#f8fafc',
                   padding: '0.9rem 1.25rem',
                   borderRadius: '0.75rem',
                   fontWeight: 700,
-                  boxShadow: '0 18px 35px rgba(5, 10, 18, 0.45)'
+                  boxShadow: '0 14px 30px rgba(5, 10, 18, 0.38)'
                 }}
               >
                 Get a Free Consultation

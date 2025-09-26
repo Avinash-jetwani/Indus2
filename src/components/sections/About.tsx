@@ -101,7 +101,7 @@ const About: React.FC = () => {
                   style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}
                 >
                   <CheckCircle2 style={{ width: '20px', height: '20px', color: '#f97316', marginTop: '2px', flexShrink: 0 }} />
-                  <span style={{ color: 'rgba(226, 232, 240, 0.85)', lineHeight: 1.6 }}>{item}</span>
+                  <span style={{ color: 'rgba(226, 232, 240, 0.88)', lineHeight: 1.65, fontSize: '0.95rem' }}>{item}</span>
                 </motion.div>
               ))}
             </div>
@@ -163,9 +163,9 @@ const About: React.FC = () => {
         {/* Values Section */}
         <div className="mb-20" style={{ marginTop: '4rem' }}>
           <div style={{
-            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(10, 16, 27, 0.9))',
+            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(11, 18, 30, 0.92))',
             borderRadius: '1.25rem',
-            padding: '3rem 1rem',
+            padding: '3rem 1.25rem',
             marginBottom: '2rem'
           }}>
           <SectionTitle
@@ -185,12 +185,12 @@ const About: React.FC = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="text-center h-full group" style={{ padding: '2rem', background: 'rgba(12, 21, 33, 0.92)', border: '1px solid rgba(255,255,255,0.06)', boxShadow: '0 16px 40px rgba(6, 12, 20, 0.55)' }}>
+                <Card className="text-center h-full group" style={{ padding: '2rem', background: 'rgba(13, 22, 34, 0.88)', border: '1px solid rgba(255,255,255,0.05)', boxShadow: '0 12px 32px rgba(6, 12, 20, 0.45)' }}>
                   <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${value.color} mb-4 group-hover:scale-110 transition-transform`}>
                     <value.icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2" style={{ color: '#fef9c3' }}>{value.title}</h3>
-                  <p style={{ color: 'rgba(226, 232, 240, 0.78)' }}>{value.description}</p>
+                  <h3 className="text-xl font-semibold mb-2" style={{ color: '#f8fafc' }}>{value.title}</h3>
+                  <p style={{ color: 'rgba(223, 227, 235, 0.78)' }}>{value.description}</p>
                 </Card>
               </motion.div>
             ))}
@@ -217,13 +217,13 @@ const About: React.FC = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="text-center h-full transition-colors" style={{ background: 'rgba(12, 21, 33, 0.92)', border: '1px solid rgba(255,255,255,0.06)', boxShadow: '0 16px 42px rgba(6, 12, 20, 0.55)' }}>
-                  <div className="inline-flex p-4 rounded-full" style={{ background: 'rgba(249, 115, 22, 0.12)', marginBottom: '1.5rem' }}>
-                    <item.icon className="w-10 h-10" style={{ color: '#f97316' }} />
+                <Card className="text-center h-full transition-colors" style={{ background: 'rgba(13, 22, 34, 0.9)', border: '1px solid rgba(255,255,255,0.05)', boxShadow: '0 12px 30px rgba(6, 12, 20, 0.42)' }}>
+                  <div className="inline-flex p-4 rounded-full" style={{ background: 'rgba(249, 115, 22, 0.1)', marginBottom: '1.3rem' }}>
+                    <item.icon className="w-10 h-10" style={{ color: '#fb923c' }} />
                   </div>
-                  <h3 className="text-2xl font-bold mb-3" style={{ color: '#fef3c7' }}>{item.title}</h3>
-                  <p className="mb-4" style={{ color: 'rgba(226, 232, 240, 0.78)' }}>{item.description}</p>
-                  <div className="text-3xl font-bold text-gradient-strong">{item.stats}</div>
+                  <h3 className="text-2xl font-bold mb-3" style={{ color: '#f8fafc' }}>{item.title}</h3>
+                  <p className="mb-4" style={{ color: 'rgba(223, 227, 235, 0.78)' }}>{item.description}</p>
+                  <div className="text-3xl font-bold" style={{ background: 'linear-gradient(135deg,#f97316,#fb923c)', WebkitBackgroundClip: 'text', color: 'transparent' }}>{item.stats}</div>
                 </Card>
               </motion.div>
             ))}

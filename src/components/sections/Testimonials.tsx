@@ -56,9 +56,9 @@ const Testimonials: React.FC = () => {
               transition={{ duration: 0.5 }}
               className="relative"
             >
-              <Card className="relative p-8 md:p-12" style={{ background: 'rgba(12, 21, 33, 0.92)', border: '1px solid rgba(255,255,255,0.06)', boxShadow: '0 20px 50px rgba(6, 12, 20, 0.55)' }}>
+              <Card className="relative p-8 md:p-12" style={{ background: 'rgba(13, 22, 34, 0.9)', border: '1px solid rgba(255,255,255,0.05)', boxShadow: '0 14px 34px rgba(6, 12, 20, 0.4)' }}>
                 {/* Quote Icon */}
-                <Quote className="absolute top-8 left-8 w-12 h-12" style={{ color: 'rgba(249, 115, 22, 0.4)' }} />
+                <Quote className="absolute top-8 left-8 w-12 h-12" style={{ color: 'rgba(249, 115, 22, 0.25)' }} />
                 
                 <div className="relative z-10">
                   {/* Rating */}
@@ -82,16 +82,16 @@ const Testimonials: React.FC = () => {
                   </div>
 
                   {/* Content */}
-                  <p className="text-xl md:text-2xl italic leading-relaxed text-center mb-8" style={{ color: 'rgba(226, 232, 240, 0.88)' }}>
+                  <p className="text-xl md:text-2xl italic leading-relaxed text-center mb-8" style={{ color: 'rgba(226, 232, 240, 0.84)' }}>
                     "{testimonials[currentIndex].content}"
                   </p>
 
                   {/* Author (no pictures) */}
                   <div className="flex flex-col items-center">
-                    <h4 className="text-lg font-semibold" style={{ color: '#fef3c7' }}>
+                    <h4 className="text-lg font-semibold" style={{ color: '#f8fafc' }}>
                       {testimonials[currentIndex].name}
                     </h4>
-                    <p className="text-sm" style={{ color: 'rgba(203, 213, 225, 0.78)' }}>
+                    <p className="text-sm" style={{ color: 'rgba(203, 213, 225, 0.74)' }}>
                       {testimonials[currentIndex].role} at {testimonials[currentIndex].company}
                     </p>
                   </div>
