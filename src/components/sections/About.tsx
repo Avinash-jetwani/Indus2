@@ -169,7 +169,15 @@ const About: React.FC = () => {
             tone="dark"
           />
 
-          <div className="values-grid" style={{ maxWidth: '80rem', margin: '0 auto' }}>
+          <div
+            className="values-grid"
+            style={{
+              maxWidth: '80rem',
+              margin: '0 auto',
+              justifyItems: 'center',
+              gap: '2.25rem'
+            }}
+          >
             {values.map((value, index) => (
               <motion.div
                 key={index}
@@ -182,26 +190,38 @@ const About: React.FC = () => {
                   className="text-center h-full group"
                   style={{
                     background: 'rgba(248, 250, 252, 0.95)',
-                    border: '1px solid rgba(15, 23, 42, 0.06)',
-                    boxShadow: '0 18px 32px rgba(8, 15, 26, 0.18)',
+                    border: '1px solid rgba(148, 163, 184, 0.18)',
+                    boxShadow: 'none',
                     color: '#0f172a',
-                    padding: '2.25rem 2rem'
+                    padding: '2rem 1.75rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    textAlign: 'center',
+                    gap: '1rem',
+                    width: '100%',
+                    maxWidth: '280px',
+                    height: '100%'
                   }}
                 >
                   <div
-                    className="inline-flex items-center justify-center mb-5 transition-transform"
+                    className="inline-flex items-center justify-center"
                     style={{
-                      width: '3.25rem',
-                      height: '3.25rem',
-                      borderRadius: '0.95rem',
+                      width: '3rem',
+                      height: '3rem',
+                      borderRadius: '0.85rem',
                       background: `linear-gradient(135deg, ${value.accent[0]}, ${value.accent[1]})`,
-                      boxShadow: '0 12px 24px rgba(249, 115, 22, 0.28)'
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
                     }}
                   >
-                    <value.icon style={{ width: '1.5rem', height: '1.5rem', color: '#fff' }} />
+                    <value.icon style={{ width: '1.4rem', height: '1.4rem', color: '#fff' }} />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2" style={{ color: '#0f172a' }}>{value.title}</h3>
-                  <p style={{ color: 'rgba(30, 41, 59, 0.72)' }}>{value.description}</p>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2" style={{ color: '#0f172a' }}>{value.title}</h3>
+                    <p style={{ color: 'rgba(30, 41, 59, 0.72)', lineHeight: 1.6 }}>{value.description}</p>
+                  </div>
                 </Card>
               </motion.div>
             ))}
