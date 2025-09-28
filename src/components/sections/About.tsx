@@ -14,31 +14,27 @@ const About: React.FC = () => {
       icon: Target,
       title: 'Mission-Driven',
       description: 'Focused on delivering exceptional value and driving real business impact for our clients.',
-      iconGradient: ['#fde047', '#f97316'],
-      iconColor: '#0f172a'
+      accent: ['#fb923c', '#f97316']
     },
     {
       icon: Users,
       title: 'Client-Centric',
       description: 'Your success is our priority. We work closely with you to understand and exceed your expectations.',
-      iconGradient: ['#f97316', '#fb7185'],
-      iconColor: '#0f172a'
+      accent: ['#fb7185', '#f97316']
     },
     {
       icon: TrendingUp,
       title: 'Innovation First',
       description: 'Continuously exploring and implementing cutting-edge technologies to keep you ahead of the curve.',
-      iconGradient: ['#cbd5f5', '#475569'],
-      iconColor: '#0f172a'
+      accent: ['#94a3b8', '#475569']
     },
     {
       icon: Award,
       title: 'Excellence',
       description: 'Committed to the highest standards of quality in every project we undertake.',
-      iconGradient: ['#f97316', '#dc2626'],
-      iconColor: '#0f172a'
+      accent: ['#fb923c', '#ef4444']
     }
-  ];
+  ] as const;
 
   const whyChooseUs = [
     {
@@ -185,26 +181,27 @@ const About: React.FC = () => {
                 <Card
                   className="text-center h-full group"
                   style={{
-                    padding: '2rem',
-                    background: 'rgba(248, 250, 252, 0.96)',
-                    border: '1px solid rgba(15, 23, 42, 0.08)',
-                    boxShadow: '0 12px 26px rgba(8, 15, 26, 0.18)',
-                    color: '#0f172a'
+                    background: 'rgba(248, 250, 252, 0.95)',
+                    border: '1px solid rgba(15, 23, 42, 0.06)',
+                    boxShadow: '0 18px 32px rgba(8, 15, 26, 0.18)',
+                    color: '#0f172a',
+                    padding: '2.25rem 2rem'
                   }}
                 >
                   <div
-                    className="inline-flex p-3 rounded-xl mb-4 group-hover:scale-110 transition-transform"
+                    className="inline-flex items-center justify-center mb-5 transition-transform"
                     style={{
-                      background: value.iconGradient
-                        ? `linear-gradient(135deg, ${value.iconGradient[0]}, ${value.iconGradient[1]})`
-                        : 'rgba(249, 115, 22, 0.2)',
-                      boxShadow: '0 8px 18px rgba(15, 23, 42, 0.18)'
+                      width: '3.25rem',
+                      height: '3.25rem',
+                      borderRadius: '0.95rem',
+                      background: `linear-gradient(135deg, ${value.accent[0]}, ${value.accent[1]})`,
+                      boxShadow: '0 12px 24px rgba(249, 115, 22, 0.28)'
                     }}
                   >
-                    <value.icon className="w-8 h-8" style={{ color: value.iconColor || '#0f172a' }} />
+                    <value.icon style={{ width: '1.5rem', height: '1.5rem', color: '#fff' }} />
                   </div>
                   <h3 className="text-xl font-semibold mb-2" style={{ color: '#0f172a' }}>{value.title}</h3>
-                  <p style={{ color: 'rgba(30, 41, 59, 0.75)' }}>{value.description}</p>
+                  <p style={{ color: 'rgba(30, 41, 59, 0.72)' }}>{value.description}</p>
                 </Card>
               </motion.div>
             ))}
