@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  ExternalLink, TrendingUp, Users, Clock, CheckCircle,
+import {
+  ExternalLink, TrendingUp, Users, CheckCircle,
   ArrowRight, Award, Briefcase
 } from 'lucide-react';
 import SectionTitle from '../common/SectionTitle';

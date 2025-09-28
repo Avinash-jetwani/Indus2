@@ -6,12 +6,11 @@ import {
 } from 'lucide-react';
 import Card from '../common/Card';
 import SectionTitle from '../common/SectionTitle';
-import Button from '../common/Button';
 import { services } from '../../data/content';
 import { Link } from 'react-scroll';
 
 const Services: React.FC = () => {
-  const iconMap: Record<string, any> = {
+  const iconMap: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
     Smartphone,
     Globe,
     Cloud,
@@ -129,7 +128,7 @@ const Services: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="mt-16 text-center rounded-2xl p-12"
-          style={{ background: 'linear-gradient(135deg,#df4a25 0%,#f97316 100%)', boxShadow: '0 25px 50px rgba(223, 74, 37, 0.35)' }}
+          style={{ background: 'linear-gradient(135deg,#df4a25 0%,#f97316 100%)', boxShadow: '0 18px 36px rgba(223, 74, 37, 0.28)' }}
         >
           <div style={{ maxWidth: '46rem', margin: '0 auto' }}>
             <h3 className="text-3xl font-bold text-white mb-4">
@@ -147,7 +146,7 @@ const Services: React.FC = () => {
                   padding: '0.9rem 1.25rem',
                   borderRadius: '0.75rem',
                   fontWeight: 700,
-                  boxShadow: '0 14px 30px rgba(5, 10, 18, 0.38)'
+                  boxShadow: '0 10px 24px rgba(5, 10, 18, 0.3)'
                 }}
               >
                 Get a Free Consultation

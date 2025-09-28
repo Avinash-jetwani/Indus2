@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Mail, Phone, Clock, Globe
+import {
+  Mail, Phone, Globe
 } from 'lucide-react';
 import SectionTitle from '../common/SectionTitle';
 import { companyInfo } from '../../data/content';

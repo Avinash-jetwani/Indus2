@@ -14,25 +14,29 @@ const About: React.FC = () => {
       icon: Target,
       title: 'Mission-Driven',
       description: 'Focused on delivering exceptional value and driving real business impact for our clients.',
-      color: 'from-amber-500 to-orange-500'
+      iconGradient: ['#fde047', '#f97316'],
+      iconColor: '#0f172a'
     },
     {
       icon: Users,
       title: 'Client-Centric',
       description: 'Your success is our priority. We work closely with you to understand and exceed your expectations.',
-      color: 'from-orange-500 to-rose-500'
+      iconGradient: ['#f97316', '#fb7185'],
+      iconColor: '#0f172a'
     },
     {
       icon: TrendingUp,
       title: 'Innovation First',
       description: 'Continuously exploring and implementing cutting-edge technologies to keep you ahead of the curve.',
-      color: 'from-slate-500 to-slate-700'
+      iconGradient: ['#cbd5f5', '#475569'],
+      iconColor: '#0f172a'
     },
     {
       icon: Award,
       title: 'Excellence',
       description: 'Committed to the highest standards of quality in every project we undertake.',
-      color: 'from-orange-600 to-red-500'
+      iconGradient: ['#f97316', '#dc2626'],
+      iconColor: '#0f172a'
     }
   ];
 
@@ -55,13 +59,6 @@ const About: React.FC = () => {
       description: 'Round-the-clock collaboration across India and UAE keeps your initiatives moving.',
       stats: '24/7 Availability'
     }
-  ];
-
-  const achievements = [
-    { number: '80', label: 'Projects Completed', suffix: '' },
-    { number: '98', label: 'Client Satisfaction', suffix: '%' },
-    { number: '15', label: 'Industry Awards', suffix: '' },
-    { number: '5', label: 'Global Offices', suffix: '' }
   ];
 
   return (
@@ -195,8 +192,16 @@ const About: React.FC = () => {
                     color: '#0f172a'
                   }}
                 >
-                  <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${value.color} mb-4 group-hover:scale-110 transition-transform`}>
-                    <value.icon className="w-8 h-8 text-white" />
+                  <div
+                    className="inline-flex p-3 rounded-xl mb-4 group-hover:scale-110 transition-transform"
+                    style={{
+                      background: value.iconGradient
+                        ? `linear-gradient(135deg, ${value.iconGradient[0]}, ${value.iconGradient[1]})`
+                        : 'rgba(249, 115, 22, 0.2)',
+                      boxShadow: '0 8px 18px rgba(15, 23, 42, 0.18)'
+                    }}
+                  >
+                    <value.icon className="w-8 h-8" style={{ color: value.iconColor || '#0f172a' }} />
                   </div>
                   <h3 className="text-xl font-semibold mb-2" style={{ color: '#0f172a' }}>{value.title}</h3>
                   <p style={{ color: 'rgba(30, 41, 59, 0.75)' }}>{value.description}</p>

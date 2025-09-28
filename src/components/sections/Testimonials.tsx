@@ -19,16 +19,6 @@ const Testimonials: React.FC = () => {
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
-  const handlePrevious = () => {
-    setIsAutoPlaying(false);
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  const handleNext = () => {
-    setIsAutoPlaying(false);
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
   const handleDotClick = (index: number) => {
     setIsAutoPlaying(false);
     setCurrentIndex(index);

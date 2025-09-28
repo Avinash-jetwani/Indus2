@@ -681,8 +681,8 @@ body {
 
 .nav-link {
   display: block;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 0.65rem;
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
@@ -704,13 +704,16 @@ body {
 
 .nav-link--active {
   color: #f97316;
-  background: rgba(249, 115, 22, 0.12);
-  box-shadow: 0 6px 16px rgba(249, 115, 22, 0.2);
+  background: rgba(249, 115, 22, 0.18);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  box-shadow: none;
 }
 
 .navbar--scrolled .nav-link--active {
   color: #df4a25;
-  background: rgba(223, 74, 37, 0.1);
+  background: rgba(223, 74, 37, 0.15);
+  border: 1px solid rgba(223, 74, 37, 0.25);
+  box-shadow: none;
 }
 
 .nav-cta button {

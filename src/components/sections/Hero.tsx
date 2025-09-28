@@ -215,7 +215,7 @@ const Hero: React.FC = () => {
                   fontWeight: '600',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
-                  boxShadow: '0 8px 25px rgba(37, 99, 235, 0.4)',
+                  boxShadow: '0 6px 18px rgba(37, 99, 235, 0.25)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '0.5rem',

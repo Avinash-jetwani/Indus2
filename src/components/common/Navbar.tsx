@@ -40,11 +40,13 @@ const Navbar: React.FC = () => {
               src={`${import.meta.env.BASE_URL}logo.png`}
               alt="Indus2 Logo"
               style={{
-                height: '48px',
+                height: '64px',
                 width: 'auto',
                 objectFit: 'contain',
-                borderRadius: '0.5rem',
-                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
+                borderRadius: '0.85rem',
+                padding: '0.35rem 0.5rem',
+                background: 'rgba(255, 255, 255, 0.85)',
+                boxShadow: '0 6px 14px rgba(15, 23, 42, 0.2)'
               }}
             />
           </motion.div>
