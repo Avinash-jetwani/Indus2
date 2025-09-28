@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
               src={`${import.meta.env.BASE_URL}logo.png`}
               alt="Indus2 Logo"
               style={{
-                height: '64px',
+                height: '54px',
                 width: 'auto',
                 objectFit: 'contain',
                 borderRadius: '0.85rem'

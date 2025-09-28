@@ -143,8 +143,8 @@ const Hero: React.FC = () => {
               background: 'rgba(255, 255, 255, 0.15)',
               backdropFilter: 'blur(15px)',
               borderRadius: '9999px',
-              padding: '0.75rem 1.5rem',
-              marginBottom: '2rem',
+              padding: '0.5rem 1.2rem',
+              marginBottom: '1.5rem',
               border: '1px solid rgba(255, 255, 255, 0.2)'
             }}
           >
@@ -154,7 +154,7 @@ const Hero: React.FC = () => {
             >
               <Sparkles style={{ width: '18px', height: '18px', color: '#fbbf24' }} />
             </motion.div>
-            <span style={{ color: 'white', fontSize: '0.95rem', fontWeight: '600' }}>
+            <span style={{ color: 'white', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
               Welcome to the Future of IT Solutions
             </span>
           </motion.div>
@@ -165,11 +165,12 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             style={{
-              fontSize: 'clamp(2rem, 6vw, 3.5rem)',
+              fontSize: 'clamp(1.9rem, 4.2vw, 3.1rem)',
               fontWeight: '800',
               color: 'white',
-              marginBottom: '1.5rem',
-              lineHeight: '1.2'
+              marginBottom: '1.25rem',
+              lineHeight: '1.15',
+              letterSpacing: '-0.01em'
             }}
             className="heading-shadow"
           >
@@ -182,12 +183,12 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             style={{
-              fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+              fontSize: 'clamp(0.95rem, 2.6vw, 1.15rem)',
               color: 'rgba(255,255,255,0.9)',
-              marginBottom: '3rem',
-              maxWidth: '48rem',
-              margin: '0 auto 3rem auto',
-              lineHeight: '1.6'
+              marginBottom: '2.5rem',
+              maxWidth: '44rem',
+              margin: '0 auto 2.5rem auto',
+              lineHeight: '1.55'
             }}
           >
             Partner with Indus2 to leverage cutting-edge technology solutions that drive innovation, 
