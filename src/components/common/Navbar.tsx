@@ -1,96 +1,83 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-scroll';
-import { Sparkles } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
+import { scrollToSection } from '../../lib/scroll';
+
+const navItems = [
+  { id: 'services', label: 'Services' },
+  { id: 'expertise', label: 'Expertise' },
+  { id: 'work', label: 'Work' },
+  { id: 'about', label: 'About' },
+  { id: 'contact', label: 'Contact' },
+];
 
 const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-
-  const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'services', label: 'Services' },
-    { id: 'about', label: 'About' },
-    { id: 'technologies', label: 'Technologies' },
-    { id: 'testimonials', label: 'Testimonials' },
-    { id: 'contact', label: 'Contact' }
-  ];
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState('home');
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  useEffect(() => {
+    const ids = ['home', ...navItems.map((n) => n.id)];
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => Boolean(el));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
+    );
+
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
+
+  const go = (id: string) => {
+    setMenuOpen(false);
+    scrollToSection(id);
+  };
 
   return (
     <>
-      <nav className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`}>
-        <div className="nav-inner">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            style={{ display: 'flex', alignItems: 'center' }}
-          >
-            <img
-              src={`${import.meta.env.BASE_URL}logo.png`}
-              alt="Indus2 Logo"
-              style={{
-                height: '54px',
-                width: 'auto',
-                objectFit: 'contain',
-                borderRadius: '0.85rem'
-              }}
-            />
-          </motion.div>
+      <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+        <div className="container nav-inner">
+          <button className="nav-logo" onClick={() => go('home')} aria-label="Indus2 home">
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Indus2" />
+          </button>
 
           <div className="nav-links">
-            {navItems.map((item, index) => (
-              <motion.div
+            {navItems.map((item) => (
+              <span
                 key={item.id}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`nav-link ${active === item.id ? 'nav-link--active' : ''}`}
+                onClick={() => go(item.id)}
               >
-                <Link
-                  to={item.id}
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  offset={-80}
-                  onSetActive={() => setActiveSection(item.id)}
-                      className={`nav-link ${activeSection === item.id ? 'nav-link--active' : ''}`}
-                >
-                  {item.label}
-                </Link>
-              </motion.div>
+                {item.label}
+              </span>
             ))}
           </div>
 
           <div className="nav-cta">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
-              <Link to="contact" smooth={true} duration={500}>
-                <button type="button">
-                  Get Started
-                  <Sparkles size={14} />
-                </button>
-              </Link>
-            </motion.div>
+            <button className="btn btn--primary btn--sm" onClick={() => go('contact')}>
+              Start a project
+              <ArrowUpRight />
+            </button>
           </div>
 
           <button
-            type="button"
-            className={`nav-toggle ${isMobileMenuOpen ? 'is-open' : ''}`}
-            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-            aria-label="Toggle navigation menu"
+            className={`nav-toggle ${menuOpen ? 'is-open' : ''}`}
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label="Toggle menu"
           >
             <span />
           </button>
@@ -98,67 +85,28 @@ const Navbar: React.FC = () => {
       </nav>
 
       <AnimatePresence>
-        {isMobileMenuOpen && (
+        {menuOpen && (
           <motion.div
+            className="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
-            className="mobile-menu"
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="mobile-menu-content">
-              {navItems.map((item, index) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, x: -15 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.2, delay: index * 0.05 }}
-                >
-                  <Link
-                    to={item.id}
-                    spy={true}
-                    smooth={true}
-                    duration={500}
-                    offset={-70}
-                    className="mobile-nav-link"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                </motion.div>
+              {navItems.map((item) => (
+                <span key={item.id} className="mobile-nav-link" onClick={() => go(item.id)}>
+                  {item.label}
+                </span>
               ))}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.2, delay: 0.3 }}
+              <button
+                className="btn btn--primary btn--block"
+                style={{ marginTop: '0.8rem' }}
+                onClick={() => go('contact')}
               >
-                <Link to="contact" smooth={true} duration={500} onClick={() => setIsMobileMenuOpen(false)}>
-                  <button
-                    type="button"
-                    style={{
-                      width: '100%',
-                      marginTop: '1rem',
-                      background: 'rgb(223, 74, 37)',
-                      color: 'white',
-                      border: 'none',
-                      padding: '1rem 2rem',
-                      borderRadius: '0.75rem',
-                      fontSize: '1rem',
-                      fontWeight: '600',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease',
-                      boxShadow: '0 4px 12px rgba(223, 74, 37, 0.3)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '0.5rem'
-                    }}
-                  >
-                    Get Started
-                    <Sparkles size={16} />
-                  </button>
-                </Link>
-              </motion.div>
+                Start a project
+                <ArrowUpRight />
+              </button>
             </div>
           </motion.div>
         )}

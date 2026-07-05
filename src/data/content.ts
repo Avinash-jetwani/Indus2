@@ -2,262 +2,292 @@ import type { Service, Technology, CaseStudy, Testimonial, Statistic } from '../
 
 export const services: Service[] = [
   {
-    id: 'mobile-dev',
-    title: 'Mobile Development',
-    description: 'Native and cross-platform mobile applications that deliver exceptional user experiences across iOS and Android platforms.',
-    icon: 'Smartphone',
-    features: [
-      'iOS & Android Native Apps',
-      'React Native Development',
-      'Flutter Applications',
-      'Progressive Web Apps',
-      'App Store Optimization',
-      'Mobile UI/UX Design'
-    ],
-    color: 'from-orange-500 to-amber-500'
-  },
-  {
     id: 'web-dev',
-    title: 'Web Development',
-    description: 'Scalable, responsive web applications built with cutting-edge technologies and best practices for optimal performance.',
+    title: 'Web Engineering',
+    description:
+      'High-performance web platforms, SaaS products and internal tools built for scale, speed and maintainability.',
     icon: 'Globe',
     features: [
-      'Custom Web Applications',
-      'E-commerce Solutions',
-      'CMS Development',
-      'API Development',
-      'SaaS Platforms',
-      'Web Performance Optimization'
+      'SaaS & product platforms',
+      'Design systems & UI engineering',
+      'APIs & real-time backends',
+      'Performance & Core Web Vitals',
     ],
-    color: 'from-orange-500 to-rose-500'
+    color: 'ignite',
+  },
+  {
+    id: 'mobile-dev',
+    title: 'Mobile Development',
+    description:
+      'Native and cross-platform apps that feel effortless — from prototype to millions of installs on iOS and Android.',
+    icon: 'Smartphone',
+    features: [
+      'React Native & Flutter',
+      'Native iOS & Android',
+      'Offline-first architecture',
+      'App Store & Play launch',
+    ],
+    color: 'ignite',
+  },
+  {
+    id: 'blockchain',
+    title: 'Blockchain & Web3',
+    description:
+      'Production smart contracts, DeFi and on-chain products — audited, gas-optimised and shipped across EVM chains and Solana.',
+    icon: 'Blocks',
+    features: [
+      'Smart contracts (Solidity / Rust)',
+      'DeFi, staking & tokenomics',
+      'Wallets & dApp front-ends',
+      'Security reviews & audits',
+    ],
+    color: 'ignite',
+  },
+  {
+    id: 'agentic-ai',
+    title: 'Agentic AI & LLM',
+    description:
+      'Autonomous agents, copilots and RAG systems that plug real LLMs into your data, tools and workflows.',
+    icon: 'Bot',
+    features: [
+      'AI agents & tool orchestration',
+      'RAG & vector search',
+      'LLM apps & copilots',
+      'Evals, guardrails & observability',
+    ],
+    color: 'signal',
   },
   {
     id: 'cloud-services',
-    title: 'Cloud Services',
-    description: 'Comprehensive cloud solutions that ensure scalability, security, and reliability for your business infrastructure.',
+    title: 'Cloud & Platform',
+    description:
+      'Resilient, cost-aware cloud foundations on AWS, GCP and Azure — from serverless to multi-region infrastructure.',
     icon: 'Cloud',
     features: [
-      'AWS, Azure, GCP Solutions',
-      'Cloud Migration',
-      'Serverless Architecture',
-      'Cloud Security',
-      'Container Orchestration',
-      'Disaster Recovery'
+      'Cloud architecture & migration',
+      'Serverless & containers',
+      'Cost & reliability engineering',
+      'Disaster recovery',
     ],
-    color: 'from-slate-500 to-slate-700'
+    color: 'ignite',
   },
   {
     id: 'devops',
     title: 'DevOps & Automation',
-    description: 'Streamline your development lifecycle with automated CI/CD pipelines and infrastructure as code solutions.',
+    description:
+      'Ship faster with automated CI/CD, infrastructure as code and observability baked into every release.',
     icon: 'Settings',
     features: [
-      'CI/CD Pipeline Setup',
-      'Infrastructure as Code',
-      'Container Management',
-      'Monitoring & Logging',
-      'Automated Testing',
-      'Security Automation'
+      'CI/CD pipelines',
+      'Infrastructure as code',
+      'Kubernetes & containers',
+      'Monitoring & alerting',
     ],
-    color: 'from-orange-600 to-red-500'
+    color: 'ignite',
   },
   {
     id: 'ai-ml',
     title: 'AI & Machine Learning',
-    description: 'Leverage artificial intelligence and machine learning to transform your business with intelligent solutions.',
+    description:
+      'Data science, computer vision and predictive models that turn raw data into measurable business outcomes.',
     icon: 'Brain',
     features: [
-      'Machine Learning Models',
-      'Natural Language Processing',
-      'Computer Vision',
-      'Predictive Analytics',
-      'Chatbot Development',
-      'Data Science Solutions'
+      'Predictive analytics',
+      'Computer vision',
+      'NLP & recommendation',
+      'MLOps & deployment',
     ],
-    color: 'from-orange-500 to-amber-400'
+    color: 'ignite',
   },
   {
     id: 'cybersecurity',
-    title: 'Cybersecurity',
-    description: 'Protect your digital assets with comprehensive security solutions and threat management strategies.',
+    title: 'Security & Assurance',
+    description:
+      'Protect your product and users with proactive audits, penetration testing and compliance-ready practices.',
     icon: 'Shield',
     features: [
-      'Security Audits',
-      'Penetration Testing',
-      'Vulnerability Assessment',
-      'Security Compliance',
-      'Incident Response',
-      'Security Training'
+      'Security audits',
+      'Penetration testing',
+      'Smart-contract security',
+      'Compliance readiness',
     ],
-    color: 'from-rose-600 to-orange-600'
-  }
+    color: 'ignite',
+  },
 ];
 
 export const technologies: Technology[] = [
   // Frontend
   { id: 'react', name: 'React', category: 'Frontend' },
-  { id: 'angular', name: 'Angular', category: 'Frontend' },
-  { id: 'vue', name: 'Vue.js', category: 'Frontend' },
   { id: 'nextjs', name: 'Next.js', category: 'Frontend' },
   { id: 'typescript', name: 'TypeScript', category: 'Frontend' },
-  { id: 'tailwind', name: 'Tailwind CSS', category: 'Frontend' },
-  
+  { id: 'vue', name: 'Vue.js', category: 'Frontend' },
+  { id: 'tailwind', name: 'Tailwind', category: 'Frontend' },
+
   // Backend
   { id: 'nodejs', name: 'Node.js', category: 'Backend' },
   { id: 'python', name: 'Python', category: 'Backend' },
-  { id: 'java', name: 'Java', category: 'Backend' },
   { id: 'golang', name: 'Go', category: 'Backend' },
-  { id: 'dotnet', name: '.NET', category: 'Backend' },
   { id: 'rust', name: 'Rust', category: 'Backend' },
-  
+  { id: 'graphql', name: 'GraphQL', category: 'Backend' },
+
   // Mobile
   { id: 'react-native', name: 'React Native', category: 'Mobile' },
   { id: 'flutter', name: 'Flutter', category: 'Mobile' },
   { id: 'swift', name: 'Swift', category: 'Mobile' },
   { id: 'kotlin', name: 'Kotlin', category: 'Mobile' },
-  
+
+  // Blockchain
+  { id: 'solidity', name: 'Solidity', category: 'Blockchain' },
+  { id: 'ethereum', name: 'Ethereum', category: 'Blockchain' },
+  { id: 'solana', name: 'Solana', category: 'Blockchain' },
+  { id: 'hardhat', name: 'Hardhat', category: 'Blockchain' },
+  { id: 'thegraph', name: 'The Graph', category: 'Blockchain' },
+
+  // AI / ML
+  { id: 'openai', name: 'OpenAI', category: 'AI/ML' },
+  { id: 'langchain', name: 'LangChain', category: 'AI/ML' },
+  { id: 'pytorch', name: 'PyTorch', category: 'AI/ML' },
+  { id: 'tensorflow', name: 'TensorFlow', category: 'AI/ML' },
+  { id: 'pinecone', name: 'Vector DB', category: 'AI/ML' },
+
   // Cloud & DevOps
   { id: 'aws', name: 'AWS', category: 'Cloud' },
-  { id: 'azure', name: 'Azure', category: 'Cloud' },
   { id: 'gcp', name: 'Google Cloud', category: 'Cloud' },
   { id: 'docker', name: 'Docker', category: 'DevOps' },
   { id: 'kubernetes', name: 'Kubernetes', category: 'DevOps' },
-  { id: 'jenkins', name: 'Jenkins', category: 'DevOps' },
   { id: 'terraform', name: 'Terraform', category: 'DevOps' },
-  
+
   // Databases
   { id: 'postgresql', name: 'PostgreSQL', category: 'Database' },
   { id: 'mongodb', name: 'MongoDB', category: 'Database' },
   { id: 'redis', name: 'Redis', category: 'Database' },
-  { id: 'mysql', name: 'MySQL', category: 'Database' },
-  { id: 'elasticsearch', name: 'Elasticsearch', category: 'Database' },
 ];
 
 export const caseStudies: CaseStudy[] = [
   {
+    id: 'defi-protocol',
+    title: 'DeFi Staking Protocol',
+    client: 'Web3 Startup',
+    industry: 'Blockchain / DeFi',
+    description:
+      'Designed and audited a multi-chain staking and rewards protocol with gas-optimised smart contracts and a real-time dApp dashboard.',
+    image: '',
+    technologies: ['Solidity', 'Hardhat', 'The Graph', 'Next.js', 'Ethers.js'],
+    results: [
+      { metric: '$40M+', label: 'total value locked' },
+      { metric: '0', label: 'critical audit findings' },
+      { metric: '38%', label: 'lower gas per txn' },
+    ],
+  },
+  {
+    id: 'ai-support-agent',
+    title: 'Agentic Support Copilot',
+    client: 'B2B SaaS Platform',
+    industry: 'Agentic AI / LLM',
+    description:
+      'Built an autonomous support agent using RAG over the customer knowledge base with tool-calling, guardrails and human handoff.',
+    image: '',
+    technologies: ['OpenAI', 'LangChain', 'Vector DB', 'Python', 'FastAPI'],
+    results: [
+      { metric: '64%', label: 'tickets auto-resolved' },
+      { metric: '3.5x', label: 'faster response time' },
+      { metric: '92%', label: 'answer accuracy' },
+    ],
+  },
+  {
     id: 'fintech-platform',
     title: 'Digital Banking Platform',
-    client: 'FinTech Innovations',
+    client: 'FinTech Scale-up',
     industry: 'Financial Services',
-    description: 'Developed a comprehensive digital banking platform with real-time transactions, AI-powered fraud detection, and seamless mobile experience.',
-    image: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=800',
-    technologies: ['React', 'Node.js', 'AWS', 'PostgreSQL', 'Docker'],
+    description:
+      'Delivered a secure, cloud-native banking platform with real-time payments, fraud detection and a polished mobile experience.',
+    image: '',
+    technologies: ['React', 'Node.js', 'AWS', 'PostgreSQL', 'Kubernetes'],
     results: [
-      '3M+ active users',
-      '99.99% uptime',
-      '40% reduction in transaction time',
-      '60% increase in customer satisfaction'
-    ]
+      { metric: '99.99%', label: 'uptime' },
+      { metric: '40%', label: 'faster transactions' },
+      { metric: '1M+', label: 'active users' },
+    ],
   },
   {
-    id: 'ecommerce-solution',
-    title: 'E-Commerce Marketplace',
-    client: 'Global Retail Corp',
+    id: 'commerce',
+    title: 'Headless Commerce Engine',
+    client: 'Global Retail Brand',
     industry: 'E-Commerce',
-    description: 'Built a scalable multi-vendor marketplace with advanced search, personalized recommendations, and integrated logistics management.',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800',
-    technologies: ['Next.js', 'Python', 'GCP', 'MongoDB', 'Kubernetes'],
+    description:
+      'Re-platformed a legacy store into a headless, edge-rendered commerce engine with personalised search and sub-second loads.',
+    image: '',
+    technologies: ['Next.js', 'Go', 'GCP', 'Redis', 'Algolia'],
     results: [
-      '$50M+ GMV in first year',
-      '500K+ products',
-      '2s average page load',
-      '35% increase in conversion rate'
-    ]
+      { metric: '2s → 0.8s', label: 'page load' },
+      { metric: '35%', label: 'higher conversion' },
+      { metric: '500K', label: 'SKUs indexed' },
+    ],
   },
-  {
-    id: 'healthcare-app',
-    title: 'Telemedicine Platform',
-    client: 'HealthTech Solutions',
-    industry: 'Healthcare',
-    description: 'Created a HIPAA-compliant telemedicine platform with video consultations, prescription management, and health records integration.',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
-    technologies: ['React Native', 'Node.js', 'Azure', 'PostgreSQL', 'WebRTC'],
-    results: [
-      '100K+ consultations',
-      'HIPAA compliant',
-      '90% patient satisfaction',
-      '50% reduction in wait times'
-    ]
-  }
 ];
 
 export const testimonials: Testimonial[] = [
   {
     id: '1',
-    name: 'Sarah Johnson',
-    role: 'CTO',
-    company: 'TechStart Inc.',
-    content: 'Indus2 transformed our digital infrastructure with their cloud-first approach. Their expertise in DevOps and automation has reduced our deployment time by 70%.',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150',
-    rating: 5
+    name: 'VP of Engineering',
+    role: 'Engineering',
+    company: 'US-based FinTech',
+    content:
+      'Indus2 embedded with our team and shipped a cloud-native platform that cut our deployment time dramatically. They treat our product like their own.',
+    avatar: '',
+    rating: 5,
   },
   {
     id: '2',
-    name: 'Michael Chen',
-    role: 'CEO',
-    company: 'Global Finance Solutions',
-    content: 'The mobile app developed by Indus2 exceeded our expectations. Their attention to security and user experience has made us a leader in digital banking.',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150',
-    rating: 5
+    name: 'Founder',
+    role: 'Founder',
+    company: 'Web3 Protocol',
+    content:
+      'Their smart-contract work was rigorous and audit-ready from day one. Gas optimisation alone saved our users a meaningful amount every month.',
+    avatar: '',
+    rating: 5,
   },
   {
     id: '3',
-    name: 'Emily Rodriguez',
-    role: 'Product Manager',
-    company: 'E-Shop Enterprise',
-    content: 'Working with Indus2 was a game-changer. They delivered a scalable e-commerce platform that handles millions of transactions seamlessly.',
-    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150',
-    rating: 5
+    name: 'Head of Product',
+    role: 'Product',
+    company: 'B2B SaaS',
+    content:
+      'The agentic AI copilot they built now resolves the majority of our support volume. It was thoughtfully engineered with real guardrails, not a demo.',
+    avatar: '',
+    rating: 5,
   },
   {
     id: '4',
-    name: 'David Kumar',
-    role: 'Director of IT',
-    company: 'Healthcare Plus',
-    content: 'Their expertise in healthcare compliance and security was invaluable. Indus2 delivered a robust telemedicine solution that our patients love.',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150',
-    rating: 5
-  }
+    name: 'CTO',
+    role: 'Technology',
+    company: 'HealthTech',
+    content:
+      'Security and compliance were handled with genuine care. Indus2 delivered a robust platform our clinicians and patients actually trust.',
+    avatar: '',
+    rating: 5,
+  },
 ];
 
 export const statistics: Statistic[] = [
-  {
-    id: '1',
-    value: '80',
-    label: 'Projects Completed',
-    suffix: ''
-  },
-  {
-    id: '2',
-    value: '15',
-    label: 'Happy Clients',
-    suffix: ''
-  },
-  {
-    id: '3',
-    value: '15',
-    label: 'Team Members',
-    suffix: ''
-  },
-  {
-    id: '4',
-    value: '5',
-    label: 'Years of Experience',
-    suffix: ''
-  }
+  { id: '1', value: '45', label: 'Projects Delivered', suffix: '+' },
+  { id: '2', value: '12', label: 'Clients Worldwide', suffix: '+' },
+  { id: '3', value: '25', label: 'Engineers & Experts', suffix: '' },
+  { id: '4', value: '5', label: 'Years Building', suffix: '' },
 ];
 
 export const companyInfo = {
   name: 'Indus2',
-  tagline: 'Transforming Ideas into Digital Excellence',
-  description: 'We are a leading IT services company specializing in cutting-edge technology solutions. From mobile and web development to cloud services and DevOps, we empower businesses to thrive in the digital age.',
+  tagline: 'Engineering ambitious software',
+  description:
+    'Indus2 is a product engineering studio. We design and build web, mobile, cloud, blockchain/Web3 and agentic-AI systems — turning ambitious ideas into shipped, scalable software.',
   email: 'support@indus2.tech',
-  phone: '+919879060420 / +971564870723',
-  address: '123 Tech Boulevard, Silicon Valley, CA 94025',
+  phone: '+91 98790 60420',
+  phoneAlt: '+971 56 487 0723',
+  locations: 'Ahmedabad, India · Dubai, UAE',
   social: {
     linkedin: 'https://linkedin.com/company/indus2',
     twitter: 'https://twitter.com/indus2',
     github: 'https://github.com/indus2',
-    facebook: 'https://facebook.com/indus2'
-  }
+  },
 };

@@ -1,160 +1,82 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Smartphone, Globe, Cloud, Settings, Brain, Shield,
-  ArrowRight, CheckCircle
+import {
+  Smartphone, Globe, Cloud, Settings, Brain, Shield, Blocks, Bot,
+  CheckCircle2, ArrowRight,
 } from 'lucide-react';
-import Card from '../common/Card';
+import type { LucideIcon } from 'lucide-react';
 import SectionTitle from '../common/SectionTitle';
+import Card from '../common/Card';
+import Reveal from '../common/Reveal';
 import { services } from '../../data/content';
-import { Link } from 'react-scroll';
+import { scrollToSection } from '../../lib/scroll';
+
+const iconMap: Record<string, LucideIcon> = {
+  Globe,
+  Smartphone,
+  Blocks,
+  Bot,
+  Cloud,
+  Settings,
+  Brain,
+  Shield,
+};
 
 const Services: React.FC = () => {
-  const iconMap: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
-    Smartphone,
-    Globe,
-    Cloud,
-    Settings,
-    Brain,
-    Shield
-  };
-
-  // Visual tokens (no Tailwind dependency)
-  const gradientById: Record<string, { gradient: string; color: string }> = {
-    'mobile-dev': { gradient: 'linear-gradient(135deg,#df4a25 0%,#f97316 100%)', color: '#df4a25' },
-    'web-dev': { gradient: 'linear-gradient(135deg,#f97316 0%,#fb923c 100%)', color: '#f97316' },
-    'cloud-services': { gradient: 'linear-gradient(135deg,#fb923c 0%,#f97316 100%)', color: '#fb923c' },
-    'devops': { gradient: 'linear-gradient(135deg,#df4a25 0%,#dc2626 100%)', color: '#df4a25' },
-    'ai-ml': { gradient: 'linear-gradient(135deg,#f97316 0%,#df4a25 100%)', color: '#f97316' },
-    'cybersecurity': { gradient: 'linear-gradient(135deg,#dc2626 0%,#df4a25 100%)', color: '#df4a25' }
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
-
   return (
-    <section id="services" className="section-padding" style={{ background: '#0b1521' }}>
-      <div className="container-custom">
+    <section id="services" className="section">
+      <div className="container">
         <SectionTitle
-          subtitle="What We Do"
-          title="Comprehensive IT Solutions"
-          description="We offer end-to-end technology services designed to transform your business and drive digital innovation."
-          align="center"
-          tone="dark"
+          kicker="What we do"
+          title={<>End-to-end product engineering</>}
+          description="One team across the full stack — from the first line of code to launch, scale and beyond."
         />
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          style={{ gap: '1.75rem' }}
-        >
-          {services.map((service) => {
-            const Icon = iconMap[service.icon];
-            const visual = gradientById[service.id] || { gradient: 'linear-gradient(135deg,#df4a25 0%,#f97316 100%)', color: '#df4a25' };
+        <div className="grid grid-3" style={{ marginTop: '3rem' }}>
+          {services.map((service, i) => {
+            const Icon = iconMap[service.icon] ?? Globe;
             return (
-              <motion.div key={service.id} variants={itemVariants}>
-                <Card
-                  className="h-full"
-                  style={{
-                    padding: '2.2rem',
-                    background: 'rgba(248, 250, 252, 0.96)',
-                    border: '1px solid rgba(15, 23, 42, 0.08)',
-                    boxShadow: '0 16px 30px rgba(8, 15, 26, 0.18)',
-                    color: '#0f172a'
-                  }}
-                >
-                  {/* Icon */}
-                  <div
-                    style={{ display: 'inline-flex', padding: '0.8rem', borderRadius: '0.8rem', background: visual.gradient, marginBottom: '1rem', boxShadow: '0 12px 26px rgba(223, 74, 37, 0.28)' }}
-                  >
-                    <Icon style={{ width: '28px', height: '28px', color: 'white' }} />
-                  </div>
-
-                  {/* Content */}
-                  <h3 style={{ fontSize: '1.45rem', fontWeight: 700, marginBottom: '0.75rem', color: '#0f172a' }}>{service.title}</h3>
-                  <p style={{ color: 'rgba(30, 41, 59, 0.78)', marginBottom: '1.1rem' }}>{service.description}</p>
-
-                  {/* Features */}
-                  <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gap: '0.5rem', marginBottom: '1.25rem' }}>
-                    {service.features.slice(0, 4).map((feature, index) => (
-                      <li key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
-                        <CheckCircle style={{ width: '18px', height: '18px', color: '#f97316', marginTop: '2px', flexShrink: 0 }} />
-                        <span style={{ color: 'rgba(30, 41, 59, 0.75)', fontSize: '0.95rem' }}>{feature}</span>
+              <Reveal key={service.id} delay={(i % 3) * 0.08}>
+                <Card className="service-card">
+                  <span className="service-index">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="service-icon">
+                    <Icon />
+                  </span>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <ul className="service-features">
+                    {service.features.map((feature) => (
+                      <li key={feature}>
+                        <CheckCircle2 />
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-
-                  {/* CTA */}
-                  <Link to="contact" smooth={true} duration={500}>
-                    <button
-                      className="btn btn-outline"
-                      style={{ borderColor: '#f97316', color: '#f97316', background: 'rgba(249, 115, 22, 0.08)' }}
-                    >
-                      Learn More
-                      <ArrowRight style={{ width: '18px', height: '18px', marginLeft: '0.5rem' }} />
-                    </button>
-                  </Link>
                 </Card>
-              </motion.div>
+              </Reveal>
             );
           })}
-        </motion.div>
+        </div>
 
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center rounded-2xl p-12"
-          style={{ background: 'linear-gradient(135deg,#df4a25 0%,#f97316 100%)', boxShadow: '0 18px 36px rgba(223, 74, 37, 0.28)' }}
-        >
-          <div style={{ maxWidth: '46rem', margin: '0 auto' }}>
-            <h3 className="text-3xl font-bold text-white mb-4">
-              Ready to Transform Your Business?
-            </h3>
-            <p style={{ color: 'rgba(248, 250, 252, 0.82)', marginBottom: '1.6rem' }}>
-              Let's discuss how our services can help you achieve your digital transformation goals.
+        <Reveal delay={0.1}>
+          <div
+            style={{
+              marginTop: '2.5rem',
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '1rem',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+            }}
+          >
+            <p className="lead" style={{ margin: 0 }}>
+              Not sure where to start? Let's scope it together.
             </p>
-            <Link to="contact" smooth={true} duration={500}>
-              <button
-                className="btn"
-                style={{
-                  background: '#101826',
-                  color: '#f8fafc',
-                  padding: '0.9rem 1.25rem',
-                  borderRadius: '0.75rem',
-                  fontWeight: 700,
-                  boxShadow: '0 10px 24px rgba(5, 10, 18, 0.3)'
-                }}
-              >
-                Get a Free Consultation
-                <ArrowRight style={{ width: '18px', height: '18px', marginLeft: '0.5rem', color: '#f97316' }} />
-              </button>
-            </Link>
+            <button className="btn btn--primary" onClick={() => scrollToSection('contact')}>
+              Book a free consultation
+              <ArrowRight />
+            </button>
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

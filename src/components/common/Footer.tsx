@@ -1,76 +1,72 @@
 import React from 'react';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Twitter, Github } from 'lucide-react';
 import { companyInfo } from '../../data/content';
+import { scrollToSection } from '../../lib/scroll';
+
+const footerNav = [
+  { id: 'services', label: 'Services' },
+  { id: 'expertise', label: 'Expertise' },
+  { id: 'work', label: 'Work' },
+  { id: 'about', label: 'About' },
+  { id: 'contact', label: 'Contact' },
+];
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
   return (
-    <footer style={{ background: 'linear-gradient(135deg, #1e293b 0%, #334155 100%)', color: 'white' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 2rem 1rem' }}>
-        {/* Company Info */}
-        <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-            <img 
-              src={`${import.meta.env.BASE_URL}logo.png`}
-              alt="Indus2 Logo" 
-              style={{ 
-                height: '60px', 
-                width: 'auto', 
-                objectFit: 'contain',
-                borderRadius: '0.5rem',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)'
-              }}
-            />
-          </div>
-          
-          <p style={{ 
-            color: '#e2e8f0', 
-            fontSize: '1.125rem', 
-            lineHeight: '1.5', 
-            maxWidth: '800px', 
-            margin: '0 auto 1rem' 
-          }}>
-            {companyInfo.description}
-          </p>
-          
-          {/* Contact Details */}
-          <div style={{ 
-            display: 'flex', 
-            flexDirection: 'column', 
-            alignItems: 'center', 
-            gap: '1rem',
-            marginBottom: '1rem'
-          }}>
-            <div className="footer-contact">
-              <a 
-                href={`mailto:${companyInfo.email}`}
-                className="footer-link"
-              >
-                <Mail size={18} />
-                <span>{companyInfo.email}</span>
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-top">
+          <div className="footer-brand">
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Indus2" />
+            <p>{companyInfo.description}</p>
+            <div className="footer-social">
+              <a href={companyInfo.social.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <Linkedin size={18} />
               </a>
-              
-              <a 
-                href={`tel:${companyInfo.phone}`}
-                className="footer-link"
-              >
-                <Phone size={18} />
-                <span>{companyInfo.phone}</span>
+              <a href={companyInfo.social.twitter} target="_blank" rel="noreferrer" aria-label="Twitter">
+                <Twitter size={18} />
+              </a>
+              <a href={companyInfo.social.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+                <Github size={18} />
               </a>
             </div>
           </div>
+
+          <div className="footer-col">
+            <h5>Navigate</h5>
+            {footerNav.map((item) => (
+              <a key={item.id} onClick={() => scrollToSection(item.id)}>
+                {item.label}
+              </a>
+            ))}
+          </div>
+
+          <div className="footer-col">
+            <h5>Get in touch</h5>
+            <a href={`mailto:${companyInfo.email}`}>
+              <Mail size={14} style={{ display: 'inline', marginRight: 8, verticalAlign: 'middle' }} />
+              {companyInfo.email}
+            </a>
+            <a href={`tel:${companyInfo.phone.replace(/\s/g, '')}`}>
+              <Phone size={14} style={{ display: 'inline', marginRight: 8, verticalAlign: 'middle' }} />
+              {companyInfo.phone}
+            </a>
+            <a href={`tel:${companyInfo.phoneAlt.replace(/\s/g, '')}`}>
+              <Phone size={14} style={{ display: 'inline', marginRight: 8, verticalAlign: 'middle' }} />
+              {companyInfo.phoneAlt}
+            </a>
+            <a style={{ cursor: 'default' }}>
+              <MapPin size={14} style={{ display: 'inline', marginRight: 8, verticalAlign: 'middle' }} />
+              {companyInfo.locations}
+            </a>
+          </div>
         </div>
 
-        {/* Copyright */}
-        <div style={{ 
-          textAlign: 'center', 
-          paddingTop: '1rem', 
-          borderTop: '1px solid rgba(255,255,255,0.1)',
-          color: '#94a3b8',
-          fontSize: '0.875rem'
-        }}>
-          © {currentYear} Indus2. All rights reserved.
+        <div className="footer-bottom">
+          <span>© {year} Indus2. All rights reserved.</span>
+          <span>Engineering ambitious software — Web · Mobile · Web3 · AI</span>
         </div>
       </div>
     </footer>

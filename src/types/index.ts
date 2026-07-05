@@ -14,6 +14,11 @@ export interface Technology {
   icon?: string;
 }
 
+export interface CaseStudyResult {
+  metric: string;
+  label: string;
+}
+
 export interface CaseStudy {
   id: string;
   title: string;
@@ -22,7 +27,7 @@ export interface CaseStudy {
   description: string;
   image: string;
   technologies: string[];
-  results: string[];
+  results: CaseStudyResult[];
 }
 
 export interface Testimonial {
@@ -33,19 +38,6 @@ export interface Testimonial {
   content: string;
   avatar: string;
   rating: number;
-}
-
-export interface TeamMember {
-  id: string;
-  name: string;
-  role: string;
-  image: string;
-  bio: string;
-  social: {
-    linkedin?: string;
-    github?: string;
-    twitter?: string;
-  };
 }
 
 export interface Statistic {

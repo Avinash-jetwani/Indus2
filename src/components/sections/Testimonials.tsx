@@ -1,128 +1,68 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 import SectionTitle from '../common/SectionTitle';
 import Card from '../common/Card';
 import { testimonials } from '../../data/content';
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 const Testimonials: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [index, setIndex] = useState(0);
+  const [auto, setAuto] = useState(true);
+  const reduced = useReducedMotion();
 
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    if (!auto || reduced) return;
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % testimonials.length);
+    }, 5500);
+    return () => clearInterval(timer);
+  }, [auto, reduced]);
 
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [isAutoPlaying]);
-
-  const handleDotClick = (index: number) => {
-    setIsAutoPlaying(false);
-    setCurrentIndex(index);
-  };
+  const current = testimonials[index];
 
   return (
-    <section id="testimonials" className="section-padding overflow-hidden" style={{ background: '#0b1521' }}>
-      <div className="container-custom">
-        <SectionTitle
-          subtitle="Testimonials"
-          title="What Our Clients Say"
-          description=""
-          align="center"
-          tone="dark"
-        />
+    <section id="testimonials" className="section">
+      <div className="container">
+        <SectionTitle kicker="Testimonials" title={<>What clients say</>} />
 
-        {/* Main Testimonial Carousel */}
-        <div className="relative max-w-4xl mx-auto mb-16">
+        <div className="testi" style={{ marginTop: '2.5rem' }}>
           <AnimatePresence mode="wait">
             <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.5 }}
-              className="relative"
+              key={current.id}
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -24 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Card
-                className="relative p-8 md:p-12"
-                style={{
-                  background: 'rgba(248, 250, 252, 0.96)',
-                  border: '1px solid rgba(15, 23, 42, 0.08)',
-                  boxShadow: '0 14px 28px rgba(6, 12, 20, 0.22)',
-                  color: '#0f172a'
-                }}
-              >
-                {/* Quote Icon */}
-                <Quote className="absolute top-8 left-8 w-12 h-12" style={{ color: 'rgba(249, 115, 22, 0.4)' }} />
-                
-                <div className="relative z-10">
-                  {/* Rating */}
-                  <div className="flex gap-1 mb-6 justify-center">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-5 h-5"
-                        style={{
-                          color:
-                            i < testimonials[currentIndex].rating
-                              ? '#facc15'
-                              : 'rgba(148, 163, 184, 0.35)',
-                          fill:
-                            i < testimonials[currentIndex].rating
-                              ? '#facc15'
-                              : 'transparent'
-                        }}
-                      />
-                    ))}
-                  </div>
-
-                  {/* Content */}
-                  <p className="text-xl md:text-2xl italic leading-relaxed text-center mb-8" style={{ color: '#1e293b' }}>
-                    "{testimonials[currentIndex].content}"
-                  </p>
-
-                  {/* Author (no pictures) */}
-                  <div className="flex flex-col items-center">
-                    <h4 className="text-lg font-semibold" style={{ color: '#0f172a' }}>
-                      {testimonials[currentIndex].name}
-                    </h4>
-                    <p className="text-sm" style={{ color: 'rgba(30, 41, 59, 0.75)' }}>
-                      {testimonials[currentIndex].role} at {testimonials[currentIndex].company}
-                    </p>
-                  </div>
+              <Card className="testi-card">
+                <Quote className="testi-quote" />
+                <div className="testi-stars">
+                  {Array.from({ length: current.rating }).map((_, i) => (
+                    <Star key={i} />
+                  ))}
                 </div>
+                <p className="testi-text">"{current.content}"</p>
+                <div className="testi-name">{current.name}</div>
+                <div className="testi-role">{current.company}</div>
               </Card>
             </motion.div>
           </AnimatePresence>
 
-          {/* Removed navigation arrows */}
-
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-8">
-            {testimonials.map((_, index) => (
+          <div className="testi-dots">
+            {testimonials.map((t, i) => (
               <button
-                key={index}
-                onClick={() => handleDotClick(index)}
-                style={{
-                  width: index === currentIndex ? '32px' : '10px',
-                  height: '10px',
-                  borderRadius: '9999px',
-                  transition: 'all 0.3s ease',
-                  background: index === currentIndex ? '#f97316' : 'rgba(148, 163, 184, 0.4)'
+                key={t.id}
+                className={`testi-dot ${i === index ? 'active' : ''}`}
+                aria-label={`Testimonial ${i + 1}`}
+                onClick={() => {
+                  setAuto(false);
+                  setIndex(i);
                 }}
               />
             ))}
           </div>
         </div>
-
-        {/* Removed duplicate testimonials grid */}
-
-        {/* Removed client logos */}
-
-        {/* Removed trust indicators */}
       </div>
     </section>
   );
