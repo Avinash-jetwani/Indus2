@@ -5,6 +5,8 @@ export interface Service {
   icon: string;
   features: string[];
   color: string;
+  span?: 'span-2' | 'span-3' | 'span-6';
+  feature?: boolean;
 }
 
 export interface Technology {

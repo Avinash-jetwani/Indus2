@@ -686,43 +686,38 @@ button {
   grid-template-columns: repeat(4, 1fr);
 }
 
-/* Services — horizontal carousel */
-.services-hint {
-  display: none;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-mute);
-  text-align: center;
-  margin: 2rem 0 0.75rem;
-}
-
-.services-strip {
+/* Services — responsive bento grid */
+.services-bento {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.4rem;
   margin-top: 2.5rem;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-padding-inline: 1.5rem;
-  overscroll-behavior-x: contain;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  padding-block: 0.75rem;
+  overflow: visible;
+  align-items: stretch;
 }
 
-.services-strip::-webkit-scrollbar {
-  display: none;
-}
-
-.services-track {
+.services-bento-cell {
   display: flex;
-  gap: 1.2rem;
-  padding: 0 1.5rem 0.5rem;
-  width: max-content;
+  flex-direction: column;
+  min-height: clamp(220px, 30vh, 320px);
+  height: auto;
 }
 
-.services-track .service-card {
-  flex: 0 0 min(88vw, 340px);
-  scroll-snap-align: start;
+.services-bento-cell.span-2 {
+  grid-column: span 2;
+}
+
+.services-bento-cell.span-3 {
+  grid-column: span 3;
+}
+
+.services-bento-cell.span-6 {
+  grid-column: span 6;
+}
+
+.services-bento-cell.feature {
+  min-height: clamp(280px, 38vh, 380px);
 }
 
 .services-cta {
@@ -734,34 +729,47 @@ button {
   justify-content: space-between;
 }
 
-@media (min-width: 640px) {
-  .services-track .service-card {
-    flex: 0 0 min(48vw, 360px);
+@media (min-width: 641px) and (max-width: 1023px) {
+  .services-bento-cell.span-2,
+  .services-bento-cell.span-3 {
+    grid-column: span 3;
+  }
+
+  .services-bento-cell.feature {
+    grid-column: span 6;
   }
 }
 
-@media (min-width: 1024px) {
-  .services-hint {
-    display: none !important;
+@media (max-width: 640px) {
+  .services-bento-cell.span-2,
+  .services-bento-cell.span-3,
+  .services-bento-cell.feature {
+    grid-column: span 6;
   }
 
-  .services-track .service-card {
-    flex: 0 0 min(32%, 360px);
+  .services-bento-cell {
+    min-height: auto;
   }
-}
 
-@media (max-width: 639px) {
-  .services-hint {
-    display: block;
+  .services-bento-cell.feature {
+    min-height: auto;
   }
 }
 
 /* Service card internals */
 .service-card {
-  padding: 2rem;
+  padding: clamp(1.25rem, 4vw, 2rem);
   height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.service-card--signal .service-icon {
+  background: var(--signal);
+}
+
+.service-card--signal .service-features svg {
+  color: var(--signal);
 }
 
 .service-icon {
@@ -783,7 +791,7 @@ button {
 
 .service-card h3 {
   font-family: var(--font-display);
-  font-size: 1.32rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.32rem);
   font-weight: 600;
   color: #fff;
   margin-bottom: 0.6rem;

@@ -14,6 +14,7 @@ export const services: Service[] = [
       'Performance & Core Web Vitals',
     ],
     color: 'ignite',
+    span: 'span-2',
   },
   {
     id: 'mobile-dev',
@@ -28,34 +29,7 @@ export const services: Service[] = [
       'App Store & Play launch',
     ],
     color: 'ignite',
-  },
-  {
-    id: 'blockchain',
-    title: 'Blockchain & Web3',
-    description:
-      'Production smart contracts, DeFi and on-chain products — audited, gas-optimised and shipped across EVM chains and Solana.',
-    icon: 'Blocks',
-    features: [
-      'Smart contracts (Solidity / Rust)',
-      'DeFi, staking & tokenomics',
-      'Wallets & dApp front-ends',
-      'Security reviews & audits',
-    ],
-    color: 'ignite',
-  },
-  {
-    id: 'agentic-ai',
-    title: 'Agentic AI & LLM',
-    description:
-      'Autonomous agents, copilots and RAG systems that plug real LLMs into your data, tools and workflows.',
-    icon: 'Bot',
-    features: [
-      'AI agents & tool orchestration',
-      'RAG & vector search',
-      'LLM apps & copilots',
-      'Evals, guardrails & observability',
-    ],
-    color: 'signal',
+    span: 'span-2',
   },
   {
     id: 'cloud-services',
@@ -70,6 +44,41 @@ export const services: Service[] = [
       'Disaster recovery',
     ],
     color: 'ignite',
+    span: 'span-2',
+  },
+  {
+    id: 'blockchain',
+    title: 'Blockchain & Web3',
+    description:
+      'Production smart contracts, DeFi and on-chain products — audited, gas-optimised and shipped across EVM chains and Solana.',
+    icon: 'Blocks',
+    features: [
+      'Smart contracts (Solidity / Rust)',
+      'DeFi, staking & tokenomics',
+      'Wallets & dApp front-ends',
+      'Security reviews & audits',
+    ],
+    color: 'ignite',
+    span: 'span-3',
+    feature: true,
+  },
+  {
+    id: 'ai-systems',
+    title: 'AI & Agentic Systems',
+    description:
+      'Autonomous agents, copilots, RAG systems and classical ML — from LLM workflows to predictive models that run in production.',
+    icon: 'Bot',
+    features: [
+      'AI agents & tool orchestration',
+      'RAG & vector search',
+      'LLM apps & copilots',
+      'Predictive analytics & NLP',
+      'Computer vision',
+      'Evals, guardrails & MLOps',
+    ],
+    color: 'signal',
+    span: 'span-3',
+    feature: true,
   },
   {
     id: 'devops',
@@ -84,20 +93,7 @@ export const services: Service[] = [
       'Monitoring & alerting',
     ],
     color: 'ignite',
-  },
-  {
-    id: 'ai-ml',
-    title: 'AI & Machine Learning',
-    description:
-      'Data science, computer vision and predictive models that turn raw data into measurable business outcomes.',
-    icon: 'Brain',
-    features: [
-      'Predictive analytics',
-      'Computer vision',
-      'NLP & recommendation',
-      'MLOps & deployment',
-    ],
-    color: 'ignite',
+    span: 'span-3',
   },
   {
     id: 'cybersecurity',
@@ -112,6 +108,7 @@ export const services: Service[] = [
       'Compliance readiness',
     ],
     color: 'ignite',
+    span: 'span-3',
   },
 ];
 
