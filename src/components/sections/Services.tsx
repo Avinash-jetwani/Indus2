@@ -30,44 +30,39 @@ const Services: React.FC = () => {
           title={<>End-to-end product engineering</>}
           description="One team across the full stack — from the first line of code to launch, scale and beyond."
         />
+      </div>
 
-        <div className="grid grid-3" style={{ marginTop: '3rem' }}>
+      <p className="services-hint">Swipe to explore</p>
+
+      <div className="services-strip">
+        <div className="services-track">
           {services.map((service, i) => {
             const Icon = iconMap[service.icon] ?? Globe;
             return (
-              <Reveal key={service.id} delay={(i % 3) * 0.08}>
-                <Card className="service-card">
-                  <span className="service-index">{String(i + 1).padStart(2, '0')}</span>
-                  <span className="service-icon">
-                    <Icon />
-                  </span>
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                  <ul className="service-features">
-                    {service.features.map((feature) => (
-                      <li key={feature}>
-                        <CheckCircle2 />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
-              </Reveal>
+              <Card key={service.id} className="service-card">
+                <span className="service-index">{String(i + 1).padStart(2, '0')}</span>
+                <span className="service-icon">
+                  <Icon />
+                </span>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+                <ul className="service-features">
+                  {service.features.map((feature) => (
+                    <li key={feature}>
+                      <CheckCircle2 />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
             );
           })}
         </div>
+      </div>
 
+      <div className="container">
         <Reveal delay={0.1}>
-          <div
-            style={{
-              marginTop: '2.5rem',
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: '1rem',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}
-          >
+          <div className="services-cta">
             <p className="lead" style={{ margin: 0 }}>
               Not sure where to start? Let's scope it together.
             </p>

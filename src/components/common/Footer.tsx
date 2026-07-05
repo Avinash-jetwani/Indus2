@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Github } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { companyInfo } from '../../data/content';
 import { scrollToSection } from '../../lib/scroll';
 
@@ -21,17 +21,6 @@ const Footer: React.FC = () => {
           <div className="footer-brand">
             <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Indus2" />
             <p>{companyInfo.description}</p>
-            <div className="footer-social">
-              <a href={companyInfo.social.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
-                <Linkedin size={18} />
-              </a>
-              <a href={companyInfo.social.twitter} target="_blank" rel="noreferrer" aria-label="Twitter">
-                <Twitter size={18} />
-              </a>
-              <a href={companyInfo.social.github} target="_blank" rel="noreferrer" aria-label="GitHub">
-                <Github size={18} />
-              </a>
-            </div>
           </div>
 
           <div className="footer-col">

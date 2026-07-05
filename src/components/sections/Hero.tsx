@@ -24,7 +24,6 @@ const Hero: React.FC = () => {
       <div className="container">
         <motion.div className="hero-inner" variants={container} initial="hidden" animate="visible">
           <motion.span className="chip" variants={item}>
-            <span className="dot" />
             Web · Mobile · Web3 · Agentic AI
           </motion.span>
 
@@ -34,7 +33,7 @@ const Hero: React.FC = () => {
 
           <motion.p className="lead" variants={item}>
             Indus2 is a product engineering studio. From SaaS platforms and mobile apps to
-            audited smart contracts and autonomous AI agents — we turn bold ideas into
+            audited smart contracts and autonomous AI agents. We turn bold ideas into
             resilient, real-world products.
           </motion.p>
 
@@ -60,11 +59,6 @@ const Hero: React.FC = () => {
             ))}
           </motion.div>
         </motion.div>
-      </div>
-
-      <div className="scroll-cue">
-        <span>Scroll</span>
-        <span className="rail" />
       </div>
     </section>
   );
