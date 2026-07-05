@@ -279,8 +279,6 @@ export const companyInfo = {
   description:
     'Indus2 is a product engineering studio. We design and build web, mobile, cloud, blockchain/Web3 and agentic-AI systems — turning ambitious ideas into shipped, scalable software.',
   email: 'support@indus2.tech',
-  phone: '+91 98790 60420',
-  phoneAlt: '+971 56 487 0723',
   locations: 'Ahmedabad, India · Dubai, UAE',
   social: {
     linkedin: 'https://linkedin.com/company/indus2',

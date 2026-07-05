@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Globe, ArrowRight } from 'lucide-react';
+import { Mail, MapPin, Globe, ArrowRight } from 'lucide-react';
 import SectionTitle from '../common/SectionTitle';
 import Card from '../common/Card';
 import Reveal from '../common/Reveal';
@@ -38,28 +38,6 @@ const Contact: React.FC = () => {
                   <span className="label">Email</span>
                   <br />
                   <span className="value">{companyInfo.email}</span>
-                </span>
-              </a>
-
-              <a className="contact-item" href={`tel:${companyInfo.phone.replace(/\s/g, '')}`}>
-                <span className="contact-item-ic">
-                  <Phone />
-                </span>
-                <span>
-                  <span className="label">India</span>
-                  <br />
-                  <span className="value">{companyInfo.phone}</span>
-                </span>
-              </a>
-
-              <a className="contact-item" href={`tel:${companyInfo.phoneAlt.replace(/\s/g, '')}`}>
-                <span className="contact-item-ic">
-                  <Phone />
-                </span>
-                <span>
-                  <span className="label">UAE</span>
-                  <br />
-                  <span className="value">{companyInfo.phoneAlt}</span>
                 </span>
               </a>
 

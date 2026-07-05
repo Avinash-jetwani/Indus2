@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 import { companyInfo } from '../../data/content';
 import { scrollToSection } from '../../lib/scroll';
 
@@ -37,14 +37,6 @@ const Footer: React.FC = () => {
             <a href={`mailto:${companyInfo.email}`}>
               <Mail size={14} style={{ display: 'inline', marginRight: 8, verticalAlign: 'middle' }} />
               {companyInfo.email}
-            </a>
-            <a href={`tel:${companyInfo.phone.replace(/\s/g, '')}`}>
-              <Phone size={14} style={{ display: 'inline', marginRight: 8, verticalAlign: 'middle' }} />
-              {companyInfo.phone}
-            </a>
-            <a href={`tel:${companyInfo.phoneAlt.replace(/\s/g, '')}`}>
-              <Phone size={14} style={{ display: 'inline', marginRight: 8, verticalAlign: 'middle' }} />
-              {companyInfo.phoneAlt}
             </a>
             <a style={{ cursor: 'default' }}>
               <MapPin size={14} style={{ display: 'inline', marginRight: 8, verticalAlign: 'middle' }} />
