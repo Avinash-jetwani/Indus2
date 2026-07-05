@@ -3,49 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '../common/SectionTitle';
 import { technologies } from '../../data/content';
 
-/** simpleicons slugs, rendered monochrome-light for a consistent logo wall. */
-const slugMap: Record<string, string> = {
-  react: 'react',
-  nextjs: 'nextdotjs',
-  typescript: 'typescript',
-  vue: 'vuedotjs',
-  tailwind: 'tailwindcss',
-  nodejs: 'nodedotjs',
-  python: 'python',
-  golang: 'go',
-  rust: 'rust',
-  graphql: 'graphql',
-  'react-native': 'react',
-  flutter: 'flutter',
-  swift: 'swift',
-  kotlin: 'kotlin',
-  solidity: 'solidity',
-  ethereum: 'ethereum',
-  solana: 'solana',
-  thegraph: 'thegraph',
-  openai: 'openai',
-  langchain: 'langchain',
-  pytorch: 'pytorch',
-  tensorflow: 'tensorflow',
-  gcp: 'googlecloud',
-  docker: 'docker',
-  kubernetes: 'kubernetes',
-  terraform: 'terraform',
-  postgresql: 'postgresql',
-  mongodb: 'mongodb',
-  redis: 'redis',
-};
-
-const FALLBACK =
-  'data:image/svg+xml;utf8,' +
-  encodeURIComponent(
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="%23ff5c34"/></svg>'
-  );
-
-const logoFor = (id: string) => {
-  const slug = slugMap[id];
-  return slug ? `https://cdn.simpleicons.org/${slug}/e7ecf3` : FALLBACK;
-};
+/** Self-hosted monochrome logos, recoloured via CSS mask for a consistent wall. */
+const logoSrc = (id: string) => `url(${import.meta.env.BASE_URL}tech/${id}.svg)`;
 
 const Technologies: React.FC = () => {
   const categories = useMemo(
@@ -57,7 +16,7 @@ const Technologies: React.FC = () => {
   const filtered =
     selected === 'All' ? technologies : technologies.filter((t) => t.category === selected);
 
-  const marqueeItems = technologies.filter((t) => slugMap[t.id]).slice(0, 16);
+  const marqueeItems = technologies.slice(0, 16);
 
   return (
     <section id="technologies" className="section">
@@ -73,7 +32,10 @@ const Technologies: React.FC = () => {
         <div className="marquee-track">
           {[...marqueeItems, ...marqueeItems].map((tech, i) => (
             <span className="marquee-item" key={`${tech.id}-${i}`}>
-              <img src={logoFor(tech.id)} alt="" loading="lazy" />
+              <span
+                className="logo-mask marquee-logo"
+                style={{ ['--src' as string]: logoSrc(tech.id) }}
+              />
               {tech.name}
             </span>
           ))}
@@ -105,14 +67,11 @@ const Technologies: React.FC = () => {
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 className="tech-tile"
               >
-                <img
-                  src={logoFor(tech.id)}
-                  alt={tech.name}
-                  loading="lazy"
-                  onError={(e) => {
-                    const img = e.currentTarget;
-                    if (img.src !== FALLBACK) img.src = FALLBACK;
-                  }}
+                <span
+                  className="logo-mask"
+                  role="img"
+                  aria-label={tech.name}
+                  style={{ ['--src' as string]: logoSrc(tech.id) }}
                 />
                 <span className="tech-name">{tech.name}</span>
                 <span className="tech-cat">{tech.category}</span>

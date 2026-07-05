@@ -565,9 +565,8 @@ img {
 
 .scroll-cue {
   position: absolute;
-  left: 50%;
-  bottom: 1.6rem;
-  transform: translateX(-50%);
+  right: 2rem;
+  bottom: 1.8rem;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -578,6 +577,12 @@ img {
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--text-mute);
+}
+
+@media (max-width: 900px) {
+  .scroll-cue {
+    display: none;
+  }
 }
 
 .scroll-cue .rail {
@@ -626,6 +631,21 @@ img {
   height: 22px;
   object-fit: contain;
   opacity: 0.85;
+}
+
+/* Monochrome logos recoloured via CSS mask (self-hosted, theme-consistent) */
+.logo-mask {
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask: var(--src) center / contain no-repeat;
+  mask: var(--src) center / contain no-repeat;
+}
+
+.marquee-logo {
+  width: 22px;
+  height: 22px;
+  color: var(--text-dim);
+  flex-shrink: 0;
 }
 
 @keyframes marquee {
@@ -1064,10 +1084,15 @@ img {
   border-color: var(--line-2);
 }
 
-.tech-tile img {
+.tech-tile .logo-mask {
   width: 34px;
   height: 34px;
-  object-fit: contain;
+  color: var(--text);
+  transition: color 0.3s var(--ease);
+}
+
+.tech-tile:hover .logo-mask {
+  color: var(--ignite-3);
 }
 
 .tech-tile .tech-name {
